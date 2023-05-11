@@ -439,7 +439,7 @@
               {
                     RequestedBy: {
                            '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
-                        Claims: "i:0#.f|membership|" && Lower(User().Email),
+                          Claims: "i:0#.f|membership|"  && Lower(User().Email),
                         Department: "",
                         DisplayName: User().FullName,
                         Email: User().Email,
@@ -450,7 +450,7 @@
                 {
                     RequestedTo: {
                        '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
-                        Claims: "i:0#.f|membership|" & Lower(_selectedApprover.Mail),
+                         Claims: "i:0#.f|membership|"  & Lower(_selectedApprover.Mail),
                         Department: "",
                         DisplayName: _selectedApprover.DisplayName,
                         Email: _selectedApprover.Mail,
