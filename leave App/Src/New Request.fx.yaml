@@ -230,6 +230,7 @@
     Button5 As button:
         DisplayMode: |
             =If(StartDate>EndDate  || StartDate<Today(),DisplayMode.View,DisplayMode.Edit)
+        FontWeight: =FontWeight.Bold
         Height: =43
         OnSelect: |-
             =Patch (
