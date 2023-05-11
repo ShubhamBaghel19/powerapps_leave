@@ -1,0 +1,478 @@
+"'New Request' As screen":
+    OnVisible: =
+
+    "Gallery5 As gallery.'BrowseLayout_Vertical_OneTextOneImageVariant_ver4.0'":
+        DelayItemLoading: =true
+        Height: =109
+        Items: ='Leave Balance'
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        ShowScrollbar: =false
+        TemplatePadding: =0
+        TemplateSize: =48
+        Width: =1080
+        WrapCount: =3
+        X: =279
+        Y: =151
+        ZIndex: =1
+
+        Button3 As button:
+            BorderColor: =RGBA(56, 96, 178, 1)
+            Color: =RGBA(56, 96, 178, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =35
+            OnSelect: |
+                =ClearCollect(
+                    LeaveSum,
+                    Sum(
+                        Filter(
+                            LeaveAppliedByUsers,
+                            LeaveId.Value = Gallery5.Selected.LeaveId && RequestedBy.Email = User().Email
+                        ),
+                        TotalDays
+                    )
+                );
+                ClearCollect(
+                    TotalLeave,
+                    Sum(
+                        Filter(
+                            'Leave Balance',
+                            LeaveId = Gallery5.Selected.LeaveId
+                        ),
+                        'Total Leave'
+                    )
+                );
+            RadiusBottomLeft: =15
+            RadiusBottomRight: =15
+            RadiusTopLeft: =15
+            RadiusTopRight: =15
+            Text: =ThisItem.'Leave Type'.Value
+            Width: =274
+            X: =63
+            ZIndex: =1
+
+        Image6 As image:
+            Height: =30
+            Image: =First(ThisItem.Attachments).AbsoluteUri
+            OnSelect: =Select(Parent)
+            Width: =22
+            X: =86
+            ZIndex: =2
+
+    Navigation_6 As Navigation:
+        CurrentScreen: ="New Request"
+        NavItem: =If(ManagerView=false,NavEmployeeView,NavManagerView)
+        Y: =96
+        ZIndex: =2
+
+    Header_6 As Header:
+        NewRequest: ='New Request'
+        ZIndex: =3
+
+    Label8 As label:
+        FontWeight: =FontWeight.Bold
+        Height: =44
+        Text: |-
+            ="Select the type of leave you plan to take: "
+        Width: =1065
+        X: =273
+        Y: =96
+        ZIndex: =4
+
+    Rectangle4 As rectangle:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        Fill: =RGBA(241, 244, 249, 1)
+        Height: =3
+        Width: =1093
+        X: =273
+        Y: =257
+        ZIndex: =5
+
+    Label10 As label:
+        FontWeight: =FontWeight.Bold
+        Height: =22
+        Text: |-
+            ="Select Dates:"
+        X: =273
+        Y: =260
+        ZIndex: =6
+
+    Label11 As label:
+        Align: =Align.Center
+        Height: =28
+        Text: |-
+            ="From:"
+        Width: =89
+        X: =348
+        Y: =298
+        ZIndex: =7
+
+    StartDate As datepicker:
+        Height: =27
+        OnChange: |-
+            =UpdateContext({daysDiff:  RoundDown(DateDiff(StartDate.SelectedDate, EndDate.SelectedDate,TimeUnit.Days)/7,0)* 5 + Mod(5+Weekday(EndDate.SelectedDate)- Weekday(StartDate.SelectedDate),  5)})
+        Width: =150
+        X: =451
+        Y: =302
+        ZIndex: =8
+
+    EndDate As datepicker:
+        Height: =27
+        OnChange: |-
+            =UpdateContext({daysdiff:RoundDown(DateDiff(StartDate.SelectedDate, EndDate.SelectedDate, TimeUnit.Days ) / 7, 0)* 5 + Mod(5 + Weekday(EndDate.SelectedDate)- Weekday(StartDate.SelectedDate),5)})
+        Width: =150
+        X: =814
+        Y: =302
+        ZIndex: =9
+
+    Label11_1 As label:
+        Align: =Align.Center
+        Height: =28
+        Text: |-
+            ="To:"
+        Width: =56
+        X: =748
+        Y: =302
+        ZIndex: =10
+
+    Label12 As label:
+        Height: =30
+        Text: |-
+            ="Current Balance:" & First(TotalLeave).Value-First(LeaveSum).Value & " Days"
+        Width: =225
+        X: =1076
+        Y: =258
+        ZIndex: =11
+
+    Label12_1 As label:
+        Height: =20
+        Text: |
+            =//"New Balance: " & First(TotalLeave).Value-First(LeaveSum).Value-(daysDiff+1) & "  Days"
+            "New Balance: " & Value(First(TotalLeave).Value-First(LeaveSum).Value)  - (daysdiff+1) & "  Days"
+        Width: =201
+        X: =1078
+        Y: =294
+        ZIndex: =12
+
+    Label12_2 As label:
+        Height: =31
+        Text: |-
+            ="Leave Applied:  " &  daysdiff+1 & "Days"
+              
+        Width: =201
+        X: =1078
+        Y: =316
+        ZIndex: =13
+
+    Rectangle4_1 As rectangle:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        Fill: =RGBA(241, 244, 249, 1)
+        Height: =3
+        Width: =1093
+        X: =266
+        Y: =347
+        ZIndex: =14
+
+    Button4 As button:
+        BorderColor: =RGBA(56, 96, 178, 1)
+        BorderThickness: =3
+        Color: =RGBA(56, 96, 178, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =27
+        OnSelect: |-
+            =UpdateContext({_showSelectApprover:true})
+        RadiusBottomLeft: =15
+        RadiusBottomRight: =15
+        RadiusTopLeft: =15
+        RadiusTopRight: =15
+        Text: ="Change"
+        Width: =138
+        X: =513
+        Y: =400
+        ZIndex: =15
+
+    Label15 As label:
+        FontWeight: =FontWeight.Bold
+        Height: =26
+        Text: |-
+            ="*Title:"
+        Width: =112
+        X: =814
+        Y: =401
+        ZIndex: =16
+
+    Label16 As label:
+        Align: =Align.Center
+        Text: |-
+            ="About your leave:"
+        Width: =221
+        X: =778
+        Y: =360
+        ZIndex: =17
+
+    txtLeaveTitle As text:
+        Default: =""
+        Height: =53
+        HintText: ="LeaveTitle"
+        Width: =536
+        X: =802
+        Y: =442
+        ZIndex: =18
+
+    Label18 As label:
+        FontWeight: =FontWeight.Bold
+        Text: |-
+            ="Leave Detail:"
+        X: =802
+        Y: =511
+        ZIndex: =19
+
+    Button5 As button:
+        DisplayMode: |
+            =If(StartDate>EndDate  || StartDate<Today(),DisplayMode.View,DisplayMode.Edit)
+        Height: =43
+        OnSelect: |-
+            =Patch (
+                LeaveAppliedByUsers,
+                Defaults(LeaveAppliedByUsers),
+                {LeaveType: Gallery5.Selected.'Leave Type'.Value},
+                {FromDate: StartDate.SelectedDate},
+                {ToDate: EndDate.SelectedDate},
+                {'Leave Title': txtLeaveTitle.Text},
+                {'Leave Description': txtLeaveDesc.Text},
+                  {TotalDays: daysdiff + 1},
+            
+                {
+                    RequestedBy: {
+                        '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                        Claims: "i:0#.f|membership|" & Lower(User().Email),
+                        Department: "",
+                        DisplayName: User().FullName,
+                        Email: User().Email,
+                        JobTitle: ".",
+                        Picture: "."
+                    }
+                },
+                {
+                    RequestedTo: {
+                        '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                        Claims: "i:0#.f|membership|" & Lower(_selectedApprover.Mail),
+                        Department: "",
+                        DisplayName: _selectedApprover.DisplayName,
+                        Email: _selectedApprover.Mail,
+                        JobTitle: ".",
+                        Picture: "."
+                    }
+                },
+                {
+                    LeaveId:
+                     {
+                        '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+                        Id: Gallery5.Selected.ID,
+                        Value: Gallery5.Selected.Title
+                    }
+                }
+            );
+            Navigate('My Leave Balance');
+            Notify("Leave Applied Succesfully",NotificationType.Success);
+        Text: ="Submit Leave"
+        Width: =1008
+        X: =309
+        Y: =699
+        ZIndex: =20
+
+    txtLeaveDesc As text:
+        Default: =""
+        Height: =61
+        HintText: ="Description"
+        Width: =536
+        X: =802
+        Y: =551
+        ZIndex: =21
+
+    Icon6 As icon.CancelBadge:
+        Height: =27
+        Icon: =Icon.CancelBadge
+        OnSelect: |-
+            =UpdateContext({_showSelectApprover:false})
+        Visible: =_showSelectApprover
+        Width: =38
+        X: =1279
+        Y: =260
+        ZIndex: =22
+
+    Label19 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Bold
+        Height: =57
+        Size: =15
+        Text: ="Select Approver"
+        Visible: =_showSelectApprover
+        Width: =267
+        X: =645
+        Y: =262
+        ZIndex: =23
+
+    TxtSearchApprover As text:
+        Align: =Align.Center
+        Default: ="Please Select  Approver"
+        Height: =54
+        Size: =15
+        Visible: =_showSelectApprover
+        Width: =970
+        X: =331
+        Y: =347
+        ZIndex: =24
+
+    Icon5 As icon.Search:
+        Height: =37
+        Icon: =Icon.Search
+        Visible: =_showSelectApprover
+        Width: =52
+        X: =336
+        Y: =357
+        ZIndex: =25
+
+    Label20 As label:
+        FontWeight: =FontWeight.Bold
+        Height: =25
+        Text: |-
+            ="Submit Request to:"
+        Width: =184
+        X: =301
+        Y: =357
+        ZIndex: =26
+
+    Label21 As label:
+        Height: =35
+        Text: =If(IsEmpty(Label21), "Click on change button",Gallery8.Selected.DisplayName)
+        Width: =198
+        X: =294
+        Y: =396
+        ZIndex: =27
+
+    Label13 As label:
+        Color: =RGBA(184, 0, 0, 1)
+        Height: =26
+        Text: =If(StartDate>EndDate,"End date must occur on or after start date",StartDate<Today(),"Start date must occue on or after today")
+        Width: =653
+        X: =407
+        Y: =262
+        ZIndex: =36
+
+    GRPSelectedApprover As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =36
+
+        Rectangle8 As rectangle:
+            Fill: =RGBA(56, 96, 178, .2)
+            Height: =768
+            Visible: =_showSelectApprover
+            Width: =1366
+            ZIndex: =28
+
+        Icon10 As icon.Search:
+            Height: =41
+            Icon: =Icon.Search
+            Visible: =_showSelectApprover
+            Width: =31
+            X: =437
+            Y: =316
+            ZIndex: =29
+
+        Rectangle9 As rectangle:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =439
+            Visible: =_showSelectApprover
+            Width: =702
+            X: =423
+            Y: =230
+            ZIndex: =30
+
+        Rectangle10 As rectangle:
+            Fill: =RGBA(166, 166, 166, 1)
+            Height: =64
+            Visible: =_showSelectApprover
+            Width: =702
+            X: =423
+            Y: =230
+            ZIndex: =31
+
+        Label22 As label:
+            Align: =Align.Center
+            FontWeight: =FontWeight.Bold
+            Height: =64
+            Size: =15
+            Text: ="Select Approver"
+            Visible: =_showSelectApprover
+            Width: =386
+            X: =601
+            Y: =230
+            ZIndex: =32
+
+        txtSearchApprover As text:
+            Align: =Align.Center
+            Default: =""
+            Height: =46
+            HintText: ="Please Select Approver"
+            Size: =14
+            Visible: =_showSelectApprover
+            Width: =702
+            X: =423
+            Y: =314
+            ZIndex: =33
+
+        Icon11 As icon.CancelBadge:
+            Height: =47
+            Icon: =Icon.CancelBadge
+            OnSelect: |-
+                =UpdateContext({_showSelectApprover:false})
+            Visible: =_showSelectApprover
+            Width: =36
+            X: =1088
+            Y: =230
+            ZIndex: =34
+
+        "Gallery8 As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
+            DelayItemLoading: =true
+            Height: =309
+            Items: |-
+                =Office365Users.SearchUser({searchTerm:txtSearchApprover.Text})
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            OnSelect: =
+            ShowScrollbar: =false
+            TemplatePadding: =0
+            TemplateSize: =47
+            Visible: =_showSelectApprover
+            Width: =702
+            X: =423
+            Y: =360
+            ZIndex: =35
+
+            Title8 As label:
+                Align: =Align.Center
+                Height: =Self.Size * 1.8
+                OnSelect: |-
+                    =UpdateContext({ _selectedApprover:ThisItem});  UpdateContext({_showSelectApprover:false})
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =ThisItem.DisplayName
+                VerticalAlign: =VerticalAlign.Top
+                Width: =Parent.TemplateWidth - 104
+                X: =32
+                Y: =4
+                ZIndex: =1
+
+            Separator7 As rectangle:
+                Height: =1
+                OnSelect: =Select(Parent)
+                Width: =Parent.TemplateWidth
+                Y: =Parent.TemplateHeight - 1
+                ZIndex: =3
+

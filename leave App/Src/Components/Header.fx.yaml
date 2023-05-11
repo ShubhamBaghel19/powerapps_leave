@@ -1,0 +1,75 @@
+Header As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =Max(App.Height, App.MinScreenHeight)/8
+    NewRequest: =App.ActiveScreen
+    Width: =Max(App.Width, App.MinScreenWidth)
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    Container1 As groupContainer.manualLayoutContainer:
+        Height: =Header.Height
+        Width: =Header.Width
+        ZIndex: =1
+
+        Rectangle1 As rectangle:
+            Height: =Header.Height
+            Width: =Header.Width
+            ZIndex: =1
+
+        Label1 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Size: =18
+            Text: ="REQUEST"
+            X: =4
+            Y: =32
+            ZIndex: =2
+
+        Icon1 As icon.ArrowRight:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =45
+            Icon: =Icon.ArrowRight
+            Width: =45
+            X: =154
+            Y: =27
+            ZIndex: =3
+
+        Label1_1 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Size: =18
+            Text: ="LEAVE"
+            Width: =111
+            X: =199
+            Y: =32
+            ZIndex: =4
+
+        Circle1 As circle:
+            Height: =70
+            Width: =70
+            X: =1020
+            Y: =17
+            ZIndex: =5
+
+        Icon2 As icon.Add:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =45
+            Icon: =Icon.Add
+            OnSelect: =Navigate(Header.NewRequest,ScreenTransition.None);
+            Width: =45
+            X: =1033
+            Y: =29
+            ZIndex: =6
+
+        Label1_2 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =55
+            Size: =18
+            Text: ="Create Request"
+            Width: =214
+            X: =1090
+            Y: =22
+            ZIndex: =7
+

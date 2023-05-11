@@ -1,0 +1,57 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |-
+        =ClearCollect(
+            NavManagerView,
+           
+             {
+                Title: "Leaves Waiting for Approval",
+                TargetScreen: 'Leaves Waiting for Approval'
+            },
+            {
+                Title: "My Leave Requests",
+                TargetScreen: 'My Leave Requests'
+            },
+            {
+                Title: "Company Holidays",
+                TargetScreen: 'Company Holidays'
+            },
+            {
+                Title: "About",
+                TargetScreen: About
+            },
+            {
+                Title: "LogOut",
+                TargetScreen: Logout
+            }
+        );ClearCollect(
+            NavEmployeeView,
+            {
+                Title: "My Leave Requests",
+                TargetScreen: 'My Leave Requests'
+            },
+            {
+                Title: "My Leave Balance",
+                TargetScreen: 'My Leave Balance'
+            },
+            {
+                Title: "Company Holidays",
+                TargetScreen: 'Company Holidays'
+            },
+            {
+                Title: "About",
+                TargetScreen: About
+            },
+            {
+                Title: "LogOut",
+                TargetScreen: Logout
+            }
+        )
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+

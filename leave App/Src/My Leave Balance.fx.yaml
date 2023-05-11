@@ -1,0 +1,107 @@
+"'My Leave Balance' As screen":
+
+    Navigation_2 As Navigation:
+        CurrentScreen: ="My Leave Balance"
+        NavItem: =If(ManagerView=false,NavEmployeeView,NavManagerView)
+        Y: =96
+
+    Header_2 As Header:
+        NewRequest: ='New Request'
+        ZIndex: =2
+
+    "Gallery2 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+        DelayItemLoading: =true
+        Height: =672
+        Items: ='Leave Balance'
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        ShowScrollbar: =false
+        TemplatePadding: =0
+        TemplateSize: =333
+        Width: =1092
+        WrapCount: =4
+        X: =273
+        Y: =96
+        ZIndex: =4
+
+        Rectangle2 As rectangle:
+            BorderColor: =RGBA(77, 77, 77, 1)
+            BorderThickness: =1
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =304
+            Width: =250
+            X: =16
+            Y: =20
+            ZIndex: =1
+
+        Image2 As image:
+            Height: =40
+            Image: =First(ThisItem.Attachments).AbsoluteUri
+            OnSelect: =Select(Parent)
+            Width: =58
+            X: =104
+            Y: =67
+            ZIndex: =2
+
+        Title1 As label:
+            Align: =Align.Center
+            Font: =Font.Lato
+            Height: =34
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =17
+            Text: =Sum(Filter('Leave Balance',LeaveId=ThisItem.LeaveId),'Total Leave')-Sum(Filter(LeaveAppliedByUsers,LeaveId.Value=ThisItem.LeaveId && RequestedBy.Email=User().Email),TotalDays) & "Days"
+            VerticalAlign: =VerticalAlign.Top
+            Width: =267
+            Y: =178
+            ZIndex: =3
+
+        Subtitle1 As label:
+            Align: =Align.Center
+            Height: =35
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: ="+Request Leave"            
+            Width: =267
+            Y: =272
+            ZIndex: =4
+
+        Label9 As label:
+            Align: =Align.Center
+            Height: =44
+            OnSelect: =Select(Parent)
+            Text: ="Available"
+            Width: =267
+            Y: =212
+            ZIndex: =5
+
+        Subtitle1_1 As label:
+            Align: =Align.Center
+            FontWeight: =FontWeight.Semibold
+            Height: =37
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.'Leave Type'.Value
+            Width: =267
+            Y: =120
+            ZIndex: =6
+
+        Icon4 As icon.Add:
+            Color: =RGBA(0, 0, 0, 1)
+            Height: =31
+            Icon: =Icon.Information
+            OnSelect: =Navigate(About)
+            Width: =25
+            X: =228
+            Y: =36
+            ZIndex: =7
+

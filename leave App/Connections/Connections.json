@@ -1,0 +1,52 @@
+{
+  "460f14dc-a09d-4d93-91b2-9050a01c8eed": {
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Office 365 Users",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1626/1.0.1626.3238/office365users/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365users",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "Office365Users"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "460f14dc-a09d-4d93-91b2-9050a01c8eed"
+  },
+  "5b38146d-7546-44c1-9c19-a8776645a52c": {
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1627/1.0.1627.3238/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://305qbt.sharepoint.com/sites/BalanceLeave": {
+        "dataSources": {
+          "Company Holidays_1": {
+            "tableName": "a4df47a8-8b39-4e9f-849f-d9f5ae28ddae"
+          },
+          "Leave Balance": {
+            "tableName": "bb6d5f31-7d27-48e4-a267-ab1980bcb619"
+          },
+          "LeaveAppliedByUsers": {
+            "tableName": "a3c2d1b1-df7d-403c-abac-427c83e64255"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "Leave Balance",
+      "Company Holidays_1",
+      "LeaveAppliedByUsers"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "5b38146d-7546-44c1-9c19-a8776645a52c"
+  }
+}

@@ -1,0 +1,198 @@
+"'Leaves Waiting for Approval' As screen":
+
+    Navigation_7 As Navigation:
+        CurrentScreen: ="Leaves Waiting for Approval"
+        Height: =687
+        NavItem: =If(ManagerView=false,NavEmployeeView,NavManagerView)
+        Y: =81
+
+    Header_7 As Header:
+        Height: =81
+        NewRequest: ='New Request'
+        ZIndex: =2
+
+    "Gallery9_1 As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
+        DelayItemLoading: =true
+        Height: =411
+        Items: =LeaveDetailColl
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        ShowScrollbar: =false
+        TemplatePadding: =0
+        TemplateSize: =397
+        Width: =296
+        X: =1070
+        Y: =213
+        ZIndex: =3
+
+        Title7_1 As label:
+            FontWeight: =FontWeight.Normal
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =13
+            Text: ="Total Days       "  &      ThisItem.TotalDays &  "  Days"
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 104
+            X: =11
+            Y: =88
+            ZIndex: =1
+
+        Label17_1 As label:
+            Height: =42
+            Text: |-
+                ="Leave Type:   " & ThisItem.LeaveType
+            Width: =255
+            X: =11
+            Y: =120
+            ZIndex: =2
+
+        Label23_1 As label:
+            Height: =34
+            OnSelect: =Select(Parent)
+            Text: |-
+                ="Request Sent to:"&ThisItem.RequestedBy.DisplayName
+            Width: =255
+            X: =11
+            Y: =173
+            ZIndex: =3
+
+        Label24_1 As label:
+            Align: =Align.Center
+            FontWeight: =FontWeight.Bold
+            OnSelect: =Select(Parent)
+            Size: =18
+            Text: ="Leave Details"
+            Width: =276
+            X: =11
+            ZIndex: =6
+
+        Button6 As button:
+            Fill: =RGBA(141, 198, 63, 1)
+            OnSelect: |
+                =Set(myItem,LookUp(LeaveAppliedByUsers,ID=Gallery7_1.Selected.ID));
+                Patch(LeaveAppliedByUsers,myItem,{LeaveStatus:
+                { '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+                Id:1,
+                Value:"Approved"}
+                });
+                Navigate('Leaves Waiting for Approval',ScreenTransition.Fade);
+            Text: ="Approve"
+            X: =11
+            Y: =242
+            ZIndex: =7
+
+        Button6_1 As button:
+            Fill: =RGBA(168, 0, 0, 1)
+            OnSelect: |
+                =Set(myItem,LookUp(LeaveAppliedByUsers,ID=Gallery7_1.Selected.ID));
+                Patch(LeaveAppliedByUsers,myItem,{LeaveStatus:
+                { '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+                Id:1,
+                Value:"Reject"}
+                });
+                Navigate('Leaves Waiting for Approval',ScreenTransition.Fade);
+            Text: ="Reject"
+            X: =11
+            Y: =298
+            ZIndex: =8
+
+    Gallery6_1 As gallery.galleryVertical:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        BorderThickness: =1
+        DelayItemLoading: =true
+        Height: =76
+        Items: |-
+            =Table({Filter:"All"},{Filter:"Pending"},{Filter:"Approved"},{Filter:"Reject"})
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        ShowScrollbar: =false
+        TemplateSize: =308
+        Width: =797
+        WrapCount: =4
+        X: =273
+        Y: =117
+        ZIndex: =4
+
+        Button7_1 As button:
+            OnSelect: |-
+                =If(ThisItem.Filter="All",ClearCollect(MyLeavesColl,Filter(LeaveAppliedByUsers,RequestedTo.Email=User().Email)),ClearCollect(MyLeavesColl,Filter(LeaveAppliedByUsers,LeaveStatus.Value=ThisItem.Filter,RequestedTo.Email=User().Email)));
+                
+                If(IsEmpty(MyLeavesColl),UpdateContext({NoData: "No Record Found"}),UpdateContext({NoData:""}));
+            Text: =ThisItem.Filter
+            X: =16
+            Y: =16
+            ZIndex: =1
+
+    "Gallery7_1 As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
+        DelayItemLoading: =true
+        Items: =MyLeavesColl
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        ShowScrollbar: =false
+        TemplatePadding: =0
+        TemplateSize: =144
+        Width: =790
+        X: =280
+        Y: =193
+        ZIndex: =5
+
+        Title4_1 As label:
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.'Leave Title'
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 104
+            X: =32
+            Y: =16
+            ZIndex: =1
+
+        Subtitle4_1 As label:
+            Height: =34
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =Text(DateTimeValue(Text(ThisItem.FromDate)),DateTimeFormat.LongDate)  &" - "  & Text(DateTimeValue(Text(ThisItem.ToDate)),DateTimeFormat.LongDate)
+            VerticalAlign: =VerticalAlign.Top
+            Width: =532
+            X: =32
+            Y: =52
+            ZIndex: =2
+
+        Body1_1 As label:
+            Height: =Self.Size * 4
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.'Leave Description'
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 104
+            X: =32
+            Y: =80
+            ZIndex: =3
+
+        Separator3_1 As rectangle:
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =5
+
+        Button8_1 As button:
+            OnSelect: =ClearCollect(LeaveDetailColl,Filter(LeaveAppliedByUsers,ID=ThisItem.ID)) 
+            Text: =ThisItem.LeaveStatus.Value
+            X: =606
+            Y: =46
+            ZIndex: =6
+
