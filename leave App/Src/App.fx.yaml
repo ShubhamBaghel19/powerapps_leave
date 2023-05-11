@@ -8,7 +8,7 @@ App As appinfo:
                 TargetScreen: 'Leaves Waiting for Approval'
             }, 
               {
-                Title: "My Leave Requests",
+                Title: "Leave Requests",
                 TargetScreen: 'My Leave Requests'
             },
           
@@ -30,6 +30,10 @@ App As appinfo:
             {
                 Title: "My Leave Requests",
                 TargetScreen: 'My Leave Requests'
+            },
+            {
+                Title: "My Leave Balance",
+                TargetScreen: 'My Leave Balance'
             },
             
             {
