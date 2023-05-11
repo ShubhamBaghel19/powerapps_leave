@@ -9,10 +9,6 @@ App As appinfo:
                 TargetScreen: 'Leaves Waiting for Approval'
             },
             {
-                Title: "My Leave Requests",
-                TargetScreen: 'My Leave Requests'
-            },
-            {
                 Title: "Company Holidays",
                 TargetScreen: 'Company Holidays'
             },

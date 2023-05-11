@@ -316,6 +316,57 @@
         Rectangle8 As rectangle:
             Fill: =RGBA(56, 96, 178, .2)
             Height: =768
+            OnSelect: |-
+                =Patch(
+                    
+                    LeaveAppliedByUsers,
+                    Defaults(LeaveAppliedByUsers),
+                    {LeaveType: Gallery5.Selected.'Leave Type'.Value},
+                    {FromDate: StartDate.SelectedDate},
+                    {ToDate: EndDate.SelectedDate},
+                    {'Leave Title': txtLeaveTitle.Text},
+                    {'Leave Description': txtLeaveDesc.Text},
+                      {TotalDays: daysdiff + 1},
+                
+                  {
+                        RequestedBy: {
+                               '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                              Claims: "i:0#.f|membership|"  && Lower(User().Email),
+                            Department: "",
+                            DisplayName: User().FullName,
+                            Email: User().Email,
+                            JobTitle: ".",
+                            Picture: "."
+                        }
+                    },
+                    {
+                        RequestedTo: {
+                           '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                             Claims: "i:0#.f|membership|"  & Lower(_selectedApprover.Mail),
+                            Department: "",
+                            DisplayName: _selectedApprover.DisplayName,
+                            Email: _selectedApprover.Mail,
+                            JobTitle: ".",
+                            Picture: "."
+                        }
+                    },
+                    {
+                        LeaveId:
+                         {
+                            '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+                            Id: Gallery5.Selected.ID,
+                            Value: Gallery5.Selected.Title
+                        }
+                    }
+                );
+                
+                
+                
+                
+                
+                
+                Navigate('My Leave Balance');
+                Notify("Leave Applied Succesfully",NotificationType.Success);
             Visible: =_showSelectApprover
             Width: =1366
             ZIndex: =28
@@ -323,6 +374,57 @@
         Icon10 As icon.Search:
             Height: =41
             Icon: =Icon.Search
+            OnSelect: |-
+                =Patch(
+                    
+                    LeaveAppliedByUsers,
+                    Defaults(LeaveAppliedByUsers),
+                    {LeaveType: Gallery5.Selected.'Leave Type'.Value},
+                    {FromDate: StartDate.SelectedDate},
+                    {ToDate: EndDate.SelectedDate},
+                    {'Leave Title': txtLeaveTitle.Text},
+                    {'Leave Description': txtLeaveDesc.Text},
+                      {TotalDays: daysdiff + 1},
+                
+                  {
+                        RequestedBy: {
+                               '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                              Claims: "i:0#.f|membership|"  && Lower(User().Email),
+                            Department: "",
+                            DisplayName: User().FullName,
+                            Email: User().Email,
+                            JobTitle: ".",
+                            Picture: "."
+                        }
+                    },
+                    {
+                        RequestedTo: {
+                           '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                             Claims: "i:0#.f|membership|"  & Lower(_selectedApprover.Mail),
+                            Department: "",
+                            DisplayName: _selectedApprover.DisplayName,
+                            Email: _selectedApprover.Mail,
+                            JobTitle: ".",
+                            Picture: "."
+                        }
+                    },
+                    {
+                        LeaveId:
+                         {
+                            '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+                            Id: Gallery5.Selected.ID,
+                            Value: Gallery5.Selected.Title
+                        }
+                    }
+                );
+                
+                
+                
+                
+                
+                
+                Navigate('My Leave Balance');
+                Notify("Leave Applied Succesfully",NotificationType.Success);
             Visible: =_showSelectApprover
             Width: =31
             X: =437
@@ -332,6 +434,57 @@
         Rectangle9 As rectangle:
             Fill: =RGBA(255, 255, 255, 1)
             Height: =439
+            OnSelect: |-
+                =Patch(
+                    
+                    LeaveAppliedByUsers,
+                    Defaults(LeaveAppliedByUsers),
+                    {LeaveType: Gallery5.Selected.'Leave Type'.Value},
+                    {FromDate: StartDate.SelectedDate},
+                    {ToDate: EndDate.SelectedDate},
+                    {'Leave Title': txtLeaveTitle.Text},
+                    {'Leave Description': txtLeaveDesc.Text},
+                      {TotalDays: daysdiff + 1},
+                
+                  {
+                        RequestedBy: {
+                               '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                              Claims: "i:0#.f|membership|"  && Lower(User().Email),
+                            Department: "",
+                            DisplayName: User().FullName,
+                            Email: User().Email,
+                            JobTitle: ".",
+                            Picture: "."
+                        }
+                    },
+                    {
+                        RequestedTo: {
+                           '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                             Claims: "i:0#.f|membership|"  & Lower(_selectedApprover.Mail),
+                            Department: "",
+                            DisplayName: _selectedApprover.DisplayName,
+                            Email: _selectedApprover.Mail,
+                            JobTitle: ".",
+                            Picture: "."
+                        }
+                    },
+                    {
+                        LeaveId:
+                         {
+                            '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+                            Id: Gallery5.Selected.ID,
+                            Value: Gallery5.Selected.Title
+                        }
+                    }
+                );
+                
+                
+                
+                
+                
+                
+                Navigate('My Leave Balance');
+                Notify("Leave Applied Succesfully",NotificationType.Success);
             Visible: =_showSelectApprover
             Width: =702
             X: =423
@@ -341,6 +494,57 @@
         Rectangle10 As rectangle:
             Fill: =RGBA(166, 166, 166, 1)
             Height: =64
+            OnSelect: |-
+                =Patch(
+                    
+                    LeaveAppliedByUsers,
+                    Defaults(LeaveAppliedByUsers),
+                    {LeaveType: Gallery5.Selected.'Leave Type'.Value},
+                    {FromDate: StartDate.SelectedDate},
+                    {ToDate: EndDate.SelectedDate},
+                    {'Leave Title': txtLeaveTitle.Text},
+                    {'Leave Description': txtLeaveDesc.Text},
+                      {TotalDays: daysdiff + 1},
+                
+                  {
+                        RequestedBy: {
+                               '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                              Claims: "i:0#.f|membership|"  && Lower(User().Email),
+                            Department: "",
+                            DisplayName: User().FullName,
+                            Email: User().Email,
+                            JobTitle: ".",
+                            Picture: "."
+                        }
+                    },
+                    {
+                        RequestedTo: {
+                           '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                             Claims: "i:0#.f|membership|"  & Lower(_selectedApprover.Mail),
+                            Department: "",
+                            DisplayName: _selectedApprover.DisplayName,
+                            Email: _selectedApprover.Mail,
+                            JobTitle: ".",
+                            Picture: "."
+                        }
+                    },
+                    {
+                        LeaveId:
+                         {
+                            '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+                            Id: Gallery5.Selected.ID,
+                            Value: Gallery5.Selected.Title
+                        }
+                    }
+                );
+                
+                
+                
+                
+                
+                
+                Navigate('My Leave Balance');
+                Notify("Leave Applied Succesfully",NotificationType.Success);
             Visible: =_showSelectApprover
             Width: =702
             X: =423
@@ -351,6 +555,57 @@
             Align: =Align.Center
             FontWeight: =FontWeight.Bold
             Height: =64
+            OnSelect: |-
+                =Patch(
+                    
+                    LeaveAppliedByUsers,
+                    Defaults(LeaveAppliedByUsers),
+                    {LeaveType: Gallery5.Selected.'Leave Type'.Value},
+                    {FromDate: StartDate.SelectedDate},
+                    {ToDate: EndDate.SelectedDate},
+                    {'Leave Title': txtLeaveTitle.Text},
+                    {'Leave Description': txtLeaveDesc.Text},
+                      {TotalDays: daysdiff + 1},
+                
+                  {
+                        RequestedBy: {
+                               '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                              Claims: "i:0#.f|membership|"  && Lower(User().Email),
+                            Department: "",
+                            DisplayName: User().FullName,
+                            Email: User().Email,
+                            JobTitle: ".",
+                            Picture: "."
+                        }
+                    },
+                    {
+                        RequestedTo: {
+                           '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                             Claims: "i:0#.f|membership|"  & Lower(_selectedApprover.Mail),
+                            Department: "",
+                            DisplayName: _selectedApprover.DisplayName,
+                            Email: _selectedApprover.Mail,
+                            JobTitle: ".",
+                            Picture: "."
+                        }
+                    },
+                    {
+                        LeaveId:
+                         {
+                            '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+                            Id: Gallery5.Selected.ID,
+                            Value: Gallery5.Selected.Title
+                        }
+                    }
+                );
+                
+                
+                
+                
+                
+                
+                Navigate('My Leave Balance');
+                Notify("Leave Applied Succesfully",NotificationType.Success);
             Size: =15
             Text: ="Select Approver"
             Visible: =_showSelectApprover
@@ -364,6 +619,57 @@
             Default: =""
             Height: =46
             HintText: ="Please Select Approver"
+            OnSelect: |-
+                =Patch(
+                    
+                    LeaveAppliedByUsers,
+                    Defaults(LeaveAppliedByUsers),
+                    {LeaveType: Gallery5.Selected.'Leave Type'.Value},
+                    {FromDate: StartDate.SelectedDate},
+                    {ToDate: EndDate.SelectedDate},
+                    {'Leave Title': txtLeaveTitle.Text},
+                    {'Leave Description': txtLeaveDesc.Text},
+                      {TotalDays: daysdiff + 1},
+                
+                  {
+                        RequestedBy: {
+                               '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                              Claims: "i:0#.f|membership|"  && Lower(User().Email),
+                            Department: "",
+                            DisplayName: User().FullName,
+                            Email: User().Email,
+                            JobTitle: ".",
+                            Picture: "."
+                        }
+                    },
+                    {
+                        RequestedTo: {
+                           '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                             Claims: "i:0#.f|membership|"  & Lower(_selectedApprover.Mail),
+                            Department: "",
+                            DisplayName: _selectedApprover.DisplayName,
+                            Email: _selectedApprover.Mail,
+                            JobTitle: ".",
+                            Picture: "."
+                        }
+                    },
+                    {
+                        LeaveId:
+                         {
+                            '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+                            Id: Gallery5.Selected.ID,
+                            Value: Gallery5.Selected.Title
+                        }
+                    }
+                );
+                
+                
+                
+                
+                
+                
+                Navigate('My Leave Balance');
+                Notify("Leave Applied Succesfully",NotificationType.Success);
             Size: =14
             Visible: =_showSelectApprover
             Width: =702
@@ -375,7 +681,56 @@
             Height: =47
             Icon: =Icon.CancelBadge
             OnSelect: |-
-                =UpdateContext({_showSelectApprover:false})
+                =Patch(
+                    
+                    LeaveAppliedByUsers,
+                    Defaults(LeaveAppliedByUsers),
+                    {LeaveType: Gallery5.Selected.'Leave Type'.Value},
+                    {FromDate: StartDate.SelectedDate},
+                    {ToDate: EndDate.SelectedDate},
+                    {'Leave Title': txtLeaveTitle.Text},
+                    {'Leave Description': txtLeaveDesc.Text},
+                      {TotalDays: daysdiff + 1},
+                
+                  {
+                        RequestedBy: {
+                               '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                              Claims: "i:0#.f|membership|"  && Lower(User().Email),
+                            Department: "",
+                            DisplayName: User().FullName,
+                            Email: User().Email,
+                            JobTitle: ".",
+                            Picture: "."
+                        }
+                    },
+                    {
+                        RequestedTo: {
+                           '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                             Claims: "i:0#.f|membership|"  & Lower(_selectedApprover.Mail),
+                            Department: "",
+                            DisplayName: _selectedApprover.DisplayName,
+                            Email: _selectedApprover.Mail,
+                            JobTitle: ".",
+                            Picture: "."
+                        }
+                    },
+                    {
+                        LeaveId:
+                         {
+                            '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+                            Id: Gallery5.Selected.ID,
+                            Value: Gallery5.Selected.Title
+                        }
+                    }
+                );
+                
+                
+                
+                
+                
+                
+                Navigate('My Leave Balance');
+                Notify("Leave Applied Succesfully",NotificationType.Success);
             Visible: =_showSelectApprover
             Width: =36
             X: =1088
@@ -389,7 +744,57 @@
                 =Office365Users.SearchUser({searchTerm:txtSearchApprover.Text})
             Layout: =Layout.Vertical
             LoadingSpinner: =LoadingSpinner.Data
-            OnSelect: =
+            OnSelect: |-
+                =Patch(
+                    
+                    LeaveAppliedByUsers,
+                    Defaults(LeaveAppliedByUsers),
+                    {LeaveType: Gallery5.Selected.'Leave Type'.Value},
+                    {FromDate: StartDate.SelectedDate},
+                    {ToDate: EndDate.SelectedDate},
+                    {'Leave Title': txtLeaveTitle.Text},
+                    {'Leave Description': txtLeaveDesc.Text},
+                      {TotalDays: daysdiff + 1},
+                
+                  {
+                        RequestedBy: {
+                               '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                              Claims: "i:0#.f|membership|"  && Lower(User().Email),
+                            Department: "",
+                            DisplayName: User().FullName,
+                            Email: User().Email,
+                            JobTitle: ".",
+                            Picture: "."
+                        }
+                    },
+                    {
+                        RequestedTo: {
+                           '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                             Claims: "i:0#.f|membership|"  & Lower(_selectedApprover.Mail),
+                            Department: "",
+                            DisplayName: _selectedApprover.DisplayName,
+                            Email: _selectedApprover.Mail,
+                            JobTitle: ".",
+                            Picture: "."
+                        }
+                    },
+                    {
+                        LeaveId:
+                         {
+                            '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+                            Id: Gallery5.Selected.ID,
+                            Value: Gallery5.Selected.Title
+                        }
+                    }
+                );
+                
+                
+                
+                
+                
+                
+                Navigate('My Leave Balance');
+                Notify("Leave Applied Succesfully",NotificationType.Success);
             ShowScrollbar: =false
             TemplatePadding: =0
             TemplateSize: =47
@@ -427,6 +832,7 @@
         Height: =86
         OnSelect: |-
             =Patch(
+                
                 LeaveAppliedByUsers,
                 Defaults(LeaveAppliedByUsers),
                 {LeaveType: Gallery5.Selected.'Leave Type'.Value},
