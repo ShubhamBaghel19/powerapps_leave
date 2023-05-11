@@ -227,61 +227,6 @@
         Y: =511
         ZIndex: =19
 
-    Button5 As button:
-        DisplayMode: |
-            =If(StartDate>EndDate  || StartDate<Today(),DisplayMode.View,DisplayMode.Edit)
-        FontWeight: =FontWeight.Bold
-        Height: =43
-        OnSelect: |-
-            =Patch(
-                LeaveAppliedByUsers,
-                Defaults(LeaveAppliedByUsers),
-                {LeaveType: Gallery5.Selected.'Leave Type'.Value},
-                {FromDate: StartDate.SelectedDate},
-                {ToDate: EndDate.SelectedDate},
-                {'Leave Title': txtLeaveTitle.Text},
-                {'Leave Description': txtLeaveDesc.Text},
-                  {TotalDays: daysdiff + 1},
-            
-                {
-                    RequestedBy: {
-                        '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
-                        Claims: "i:0#.f|membership|" & Lower(User().Email),
-                        Department: "",
-                        DisplayName: User().FullName,
-                        Email: User().Email,
-                        JobTitle: ".",
-                        Picture: "."
-                    }
-                },
-                {
-                    RequestedTo: {
-                        '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
-                        Claims: "i:0#.f|membership|" & Lower(_selectedApprover.Mail),
-                        Department: "",
-                        DisplayName: _selectedApprover.DisplayName,
-                        Email: _selectedApprover.Mail,
-                        JobTitle: ".",
-                        Picture: "."
-                    }
-                },
-                {
-                    LeaveId:
-                     {
-                        '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-                        Id: Gallery5.Selected.ID,
-                        Value: Gallery5.Selected.Title
-                    }
-                }
-            );
-            Navigate('My Leave Balance');
-            Notify("Leave Applied Succesfully",NotificationType.Success);
-        Text: ="Submit Leave"
-        Width: =1008
-        X: =312
-        Y: =704
-        ZIndex: =20
-
     txtLeaveDesc As text:
         Default: =""
         Height: =61
@@ -476,4 +421,33 @@
                 Width: =Parent.TemplateWidth
                 Y: =Parent.TemplateHeight - 1
                 ZIndex: =3
+
+    Button5 As button:
+        OnSelect: |-
+            =Patch(
+                LeaveAppliedByUsers,
+                Defaults(LeaveAppliedByUsers),
+                {LeaveType: Gallery5.Selected.'Leave Type'.Value},
+                {FromDate: StartDate.SelectedDate},
+                {ToDate: EndDate.SelectedDate},
+                {'Leave Title': txtLeaveTitle.Text},
+                {'Leave Description': txtLeaveDesc.Text},
+                  {TotalDays: daysdiff + 1},
+            
+                
+                {
+                    LeaveId:
+                     {
+                        '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+                        Id: Gallery5.Selected.ID,
+                        Value: Gallery5.Selected.Title
+                    }
+                }
+            );
+            Navigate('My Leave Balance');
+            Notify("Leave Applied Succesfully",NotificationType.Success);
+        Text: ="Button"
+        X: =532
+        Y: =701
+        ZIndex: =37
 
