@@ -277,8 +277,8 @@
             Notify("Leave Applied Succesfully",NotificationType.Success);
         Text: ="Submit Leave"
         Width: =1008
-        X: =309
-        Y: =699
+        X: =312
+        Y: =704
         ZIndex: =20
 
     txtLeaveDesc As text:
