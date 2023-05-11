@@ -112,8 +112,8 @@
         OnChange: |-
             =UpdateContext({daysDiff:  RoundDown(DateDiff(StartDate.SelectedDate, EndDate.SelectedDate,TimeUnit.Days)/7,0)* 5 + Mod(5+Weekday(EndDate.SelectedDate)- Weekday(StartDate.SelectedDate),  5)})
         Width: =150
-        X: =451
-        Y: =302
+        X: =459
+        Y: =305
         ZIndex: =8
 
     EndDate As datepicker:
@@ -467,6 +467,12 @@
                     }
                 }
             );
+            
+            
+            
+            
+            
+            
             Navigate('My Leave Balance');
             Notify("Leave Applied Succesfully",NotificationType.Success);
         Size: =25
