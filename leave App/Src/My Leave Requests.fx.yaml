@@ -2,7 +2,7 @@
 
     Navigation_1 As Navigation:
         CurrentScreen: ="My Leave Requests"
-        NavItem: =If(ManagerView=false,NavManagerView,NavEmployeeView)
+        NavItem: =If(ManagerView=false,NavEmployeeView,NavManagerView)
         Y: =96
 
     Gallery6 As gallery.galleryVertical:
