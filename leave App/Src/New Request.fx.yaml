@@ -436,10 +436,10 @@
                 {'Leave Description': txtLeaveDesc.Text},
                   {TotalDays: daysdiff + 1},
             
-                {
+              {
                     RequestedBy: {
-                        '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
-                        Claims: "i:0#.f|membership|" & Lower(User().Email),
+                           '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                        Claims: "i:0#.f|membership|" && Lower(User().Email),
                         Department: "",
                         DisplayName: User().FullName,
                         Email: User().Email,
@@ -449,7 +449,7 @@
                 },
                 {
                     RequestedTo: {
-                        '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                       '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
                         Claims: "i:0#.f|membership|" & Lower(_selectedApprover.Mail),
                         Department: "",
                         DisplayName: _selectedApprover.DisplayName,
