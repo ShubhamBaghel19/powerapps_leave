@@ -233,7 +233,7 @@
         FontWeight: =FontWeight.Bold
         Height: =43
         OnSelect: |-
-            =Patch (
+            =Patch(
                 LeaveAppliedByUsers,
                 Defaults(LeaveAppliedByUsers),
                 {LeaveType: Gallery5.Selected.'Leave Type'.Value},
