@@ -2,7 +2,10 @@
 
     Navigation_1 As Navigation:
         CurrentScreen: ="My Leave Requests"
-        NavItem: =If(ManagerView=false,NavEmployeeView,NavManagerView)
+        NavItem: |-
+            =If(ManagerView,
+            Table({Title: "My Leave Requests",TargetScreen:App.ActiveScreen},{Title: "Company Holidays", TargetScreen:App.ActiveScreen} ,{Title: "About", TargetScreen:App.ActiveScreen},{Title: "LogOut", TargetScreen:App.ActiveScreen}),
+            Table({Title: "My Leave Requests",TargetScreen:App.ActiveScreen},{Title: "My Leave Balance", TargetScreen:App.ActiveScreen},{Title: "Company Holidays", TargetScreen:App.ActiveScreen} ,{Title: "About", TargetScreen:App.ActiveScreen},{Title: "LogOut", TargetScreen:App.ActiveScreen}))
         Y: =96
 
     Gallery6 As gallery.galleryVertical:
