@@ -109,8 +109,11 @@
 
     StartDate As datepicker:
         Height: =27
-        OnChange: |-
+        OnChange: |+
             =UpdateContext({daysDiff:  RoundDown(DateDiff(StartDate.SelectedDate, EndDate.SelectedDate,TimeUnit.Days)/7,0)* 5 + Mod(5+Weekday(EndDate.SelectedDate)- Weekday(StartDate.SelectedDate),  5)})
+            
+        OnSelect: |
+            =ClearCollect(AlreadyAppliedDates,ShowColumns(LeaveAppliedByUsers,"FromDate","ToDate","TotalDays"));
         Width: =150
         X: =459
         Y: =305
@@ -140,8 +143,8 @@
         Text: |-
             ="Current Balance:" & First(TotalLeave).Value-First(LeaveSum).Value & " Days"
         Width: =225
-        X: =1076
-        Y: =258
+        X: =1088
+        Y: =264
         ZIndex: =11
 
     Label12_1 As label:
@@ -831,7 +834,8 @@
         FontWeight: =FontWeight.Bold
         Height: =86
         OnSelect: |-
-            =Patch(
+            =
+            Patch(
                 
                 LeaveAppliedByUsers,
                 Defaults(LeaveAppliedByUsers),
