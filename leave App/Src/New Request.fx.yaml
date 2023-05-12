@@ -1,5 +1,19 @@
 "'New Request' As screen":
-    OnVisible: =
+    OnVisible: |-
+        =ClearCollect(AppliedLeave,Filter(LeaveAppliedByUsers,RequestedBy.Email=User().Email));
+        
+        ForAll(
+            AddColumns(
+                FirstN(
+                    [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29],
+                    DateDiff(StartDate.SelectedDate, EndDate.SelectedDate, TimeUnit.Days) + 1),
+                "Day",
+                    "Day " & (Value + 1),
+                "Date",
+                    DateAdd(StartDate.SelectedDate, Value, TimeUnit.Days)
+            ),
+            Collect(AllDate,{DateTitle:Date})
+        );
 
     "Gallery5 As gallery.'BrowseLayout_Vertical_OneTextOneImageVariant_ver4.0'":
         DelayItemLoading: =true
@@ -48,7 +62,7 @@
             RadiusTopRight: =15
             Text: =ThisItem.'Leave Type'.Value
             Width: =274
-            X: =63
+            X: =45
             ZIndex: =1
 
         Image6 As image:
@@ -112,8 +126,7 @@
         OnChange: |+
             =UpdateContext({daysDiff:  RoundDown(DateDiff(StartDate.SelectedDate, EndDate.SelectedDate,TimeUnit.Days)/7,0)* 5 + Mod(5+Weekday(EndDate.SelectedDate)- Weekday(StartDate.SelectedDate),  5)})
             
-        OnSelect: |
-            =ClearCollect(AlreadyAppliedDates,ShowColumns(LeaveAppliedByUsers,"FromDate","ToDate","TotalDays"));
+        OnSelect: =
         Width: =150
         X: =459
         Y: =305
@@ -834,7 +847,19 @@
         FontWeight: =FontWeight.Bold
         Height: =86
         OnSelect: |-
-            =AlreadyAppliedDates
+            =ClearCollect(
+                DateRange,
+                AddColumns(
+                    FirstN(
+                        [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29],
+                        DateDiff(StartDate.SelectedDate, EndDate.SelectedDate, TimeUnit.Days) + 1),
+                    "Day",
+                        "Day " & (Value + 1),
+                    "Date",
+                        DateAdd(StartDate.SelectedDate, Value, TimeUnit.Days)
+                )
+            );
+            
             Patch(
                 
                 LeaveAppliedByUsers,
@@ -877,12 +902,6 @@
                     }
                 }
             );
-            
-            
-            
-            
-            
-            
             Navigate('My Leave Balance');
             Notify("Leave Applied Succesfully",NotificationType.Success);
         Size: =25
