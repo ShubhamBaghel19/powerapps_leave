@@ -834,7 +834,7 @@
         FontWeight: =FontWeight.Bold
         Height: =86
         OnSelect: |-
-            =
+            =AlreadyAppliedDates
             Patch(
                 
                 LeaveAppliedByUsers,
