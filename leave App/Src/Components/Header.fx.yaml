@@ -58,8 +58,8 @@ Header As CanvasComponent:
             Icon: =Icon.Add
             OnSelect: =Navigate(Header.NewRequest,ScreenTransition.None);
             Width: =45
-            X: =1033
-            Y: =29
+            X: =963
+            Y: =25
             ZIndex: =6
 
         Label1_2 As label:
@@ -69,7 +69,7 @@ Header As CanvasComponent:
             Size: =18
             Text: ="Create Request"
             Width: =214
-            X: =1090
-            Y: =22
+            X: =1020
+            Y: =20
             ZIndex: =7
 
