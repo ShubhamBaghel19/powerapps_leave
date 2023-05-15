@@ -844,7 +844,7 @@
     Button5 As button:
         FontWeight: =FontWeight.Bold
         Height: =86
-        OnSelect: |-
+        OnSelect: |+
             =ClearCollect(
                 DateRange,
                 AddColumns(
@@ -857,14 +857,10 @@
                         DateAdd(StartDate.SelectedDate, Value, TimeUnit.Days)
                 )
             );
+            Clear(TotalLeaves);
             ForAll(AllDate,If(ThisRecord.DateTitle in DateRange.DateAdd,Collect(TotalLeaves,{Flag:true})));
-            CountRows(AllDate);
-            If(CountRows(AllDate)>0,NotificationType.Success,NotificationType.Error);
-            
-            
-            
-            
-            Patch(
+            CountRows(TotalLeaves);
+            If(CountRows(TotalLeaves)>0,Notify("Leave for the selected dates is already applied.To apply for a leave select a new date",NotificationType.Error),Patch(
                 
                 LeaveAppliedByUsers,
                 Defaults(LeaveAppliedByUsers),
@@ -908,6 +904,8 @@
             );
             Navigate('My Leave Balance');
             Notify("Leave Applied Succesfully",NotificationType.Success);
+            );
+            
         Size: =25
         Text: ="Submit"
         Width: =1080
