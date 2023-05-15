@@ -853,10 +853,16 @@
                         DateDiff(StartDate.SelectedDate, EndDate.SelectedDate, TimeUnit.Days) + 1),
                     "Day",
                         "Day " & (Value + 1),
-                    "Date",
+                    "DateAdd",
                         DateAdd(StartDate.SelectedDate, Value, TimeUnit.Days)
                 )
             );
+            ForAll(AllDate,If(ThisRecord.DateTitle in DateRange.DateAdd,Collect(TotalLeaves,{Flag:true})));
+            CountRows(AllDate);
+            If(CountRows(AllDate)>0,NotificationType.Success,NotificationType.Error);
+            
+            
+            
             
             Patch(
                 
