@@ -34,6 +34,7 @@
       "ID": "ID",
       "Modified": "Modified",
       "OData__ColorTag": "Color Tag",
+      "Sign_x002d_off_x0020_status": "Sign-off status",
       "Title": "Title"
     },
     "DatasetName": "https://305qbt.sharepoint.com/sites/BalanceLeave",
