@@ -1,4 +1,5 @@
 "'Leaves Waiting for Approval' As screen":
+    OnVisible: =Reset(Gallery9_1);
 
     Navigation_7 As Navigation:
         CurrentScreen: ="Leaves Waiting for Approval"

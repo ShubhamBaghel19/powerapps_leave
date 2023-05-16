@@ -1,4 +1,5 @@
 "'My Leave Requests' As screen":
+    OnVisible: =Reset(Gallery9);
 
     Navigation_1 As Navigation:
         CurrentScreen: ="My Leave Requests"

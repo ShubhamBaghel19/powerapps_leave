@@ -11,7 +11,6 @@ About As screen:
         Items: ='Leave Balance'
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
-        ShowScrollbar: =false
         TemplatePadding: =0
         TemplateSize: =86
         Width: =1092
