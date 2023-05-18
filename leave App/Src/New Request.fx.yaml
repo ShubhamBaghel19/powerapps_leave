@@ -852,68 +852,7 @@
     Button5 As button:
         FontWeight: =FontWeight.Bold
         Height: =86
-        OnSelect: |+
-            =ClearCollect(
-                DateRange,
-                AddColumns(
-                    FirstN(
-                        [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29],
-                        DateDiff(StartDate.SelectedDate, EndDate.SelectedDate, TimeUnit.Days) + 1),
-                    "Day",
-                        "Day " & (Value + 1),
-                    "DateAdd",
-                        DateAdd(StartDate.SelectedDate, Value, TimeUnit.Days)
-                )
-            );
-            Clear(TotalLeaves);
-            ForAll(AllDate,If(ThisRecord.DateTitle in DateRange.DateAdd,Collect(TotalLeaves,{Flag:true})));
-            CountRows(TotalLeaves);
-            If(CountRows(TotalLeaves)>0,Notify("Leave for the selected dates is already applied.To apply for a leave select a new date",NotificationType.Error),Patch(
-                
-                LeaveAppliedByUsers,
-                Defaults(LeaveAppliedByUsers),
-                {LeaveType: Gallery5.Selected.'Leave Type'.Value},
-                {FromDate: StartDate.SelectedDate},
-                {ToDate: EndDate.SelectedDate},
-                {'Leave Title': txtLeaveTitle.Text},
-                {'Leave Description': txtLeaveDesc.Text},
-                  {TotalDays: daysdiff + 1},
-            
-              {
-                    RequestedBy: {
-                           '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
-                          Claims: "i:0#.f|membership|"  && Lower(User().Email),
-                        Department: "",
-                        DisplayName: User().FullName,
-                        Email: User().Email,
-                        JobTitle: ".",
-                        Picture: "."
-                    }
-                },
-                {
-                    RequestedTo: {
-                       '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
-                         Claims: "i:0#.f|membership|"  & Lower(_selectedApprover.Mail),
-                        Department: "",
-                        DisplayName: _selectedApprover.DisplayName,
-                        Email: _selectedApprover.Mail,
-                        JobTitle: ".",
-                        Picture: "."
-                    }
-                },
-                {
-                    LeaveId:
-                     {
-                        '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-                        Id: Gallery5.Selected.ID,
-                        Value: Gallery5.Selected.Title
-                    }
-                }
-            );
-            Navigate('My Leave Balance');
-            Notify("Leave Applied Succesfully",NotificationType.Success);
-            );
-            
+        OnSelect: =
         Size: =25
         Text: ="Submit"
         Width: =1080
