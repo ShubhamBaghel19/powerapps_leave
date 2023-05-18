@@ -26,13 +26,12 @@
         Button7 As button:
             Color: |
                 =RGBA(255, 255, 255, 3)
-            OnSelect: |-
+            OnSelect: |+
                 =If(ThisItem.Filter="All",ClearCollect(MyLeavesColl,Filter(LeaveAppliedByUsers,RequestedBy.Email=User().Email)),ClearCollect(MyLeavesColl,Filter(LeaveAppliedByUsers,LeaveStatus.Value=ThisItem.Filter,RequestedBy.Email=User().Email)));
                 
                 If(IsEmpty(MyLeavesColl),UpdateContext({NoData: "No Record Found"}),UpdateContext({NoData:""}));
                 
                 
-                Set(Reject,true);
             Text: =ThisItem.Filter
             X: =16
             Y: =16
@@ -100,7 +99,10 @@
             ZIndex: =5
 
         Button8 As button:
-            OnSelect: =ClearCollect(LeaveDetailColl,Filter(LeaveAppliedByUsers,ID=ThisItem.ID)) 
+            OnSelect: |-
+                =ClearCollect(LeaveDetailColl,Filter(LeaveAppliedByUsers,ID=ThisItem.ID)) ;
+                
+                Set(Reject,true);
             Text: =ThisItem.LeaveStatus.Value
             X: =606
             Y: =46
