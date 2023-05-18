@@ -1,12 +1,13 @@
 "'New Request' As screen":
     OnVisible: |-
-        =Reset(StartDate);
+        =
+        ClearCollect(AppliedLeave,Filter(LeaveAppliedByUsers,RequestedBy.Email=User().Email));
+        Reset(StartDate);
         Reset(EndDate);
         Reset(txtLeaveDesc);
         Reset(txtLeaveTitle);
         Reset(Gallery5);
         
-        ClearCollect(AppliedLeave,Filter(LeaveAppliedByUsers,RequestedBy.Email=User().Email));
         
         ForAll(
             AddColumns(
