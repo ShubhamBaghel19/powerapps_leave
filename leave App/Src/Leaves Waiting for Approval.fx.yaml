@@ -195,8 +195,7 @@
             OnSelect: |-
                 =ClearCollect(LeaveDetailColl,Filter(LeaveAppliedByUsers,ID=ThisItem.ID)) ;
                 
-                //Set(Reject,!Reject);
-                Set(Reject,true)
+                Set(Reject,!Reject);
             Text: =ThisItem.LeaveStatus.Value
             X: =606
             Y: =46
