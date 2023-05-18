@@ -42,6 +42,7 @@
         Items: =MyLeavesColl
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
+        OnSelect: =Set(Oman,!Oman);
         TemplatePadding: =0
         TemplateSize: =144
         Width: =790
@@ -102,90 +103,10 @@
             OnSelect: |-
                 =ClearCollect(LeaveDetailColl,Filter(LeaveAppliedByUsers,ID=ThisItem.ID)) ;
                 
-                Set(Reject,true);
+                Set(Reject,!Reject);
             Text: =ThisItem.LeaveStatus.Value
             X: =606
             Y: =46
-            ZIndex: =6
-
-    "Gallery9 As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
-        DelayItemLoading: =true
-        Height: =411
-        Items: =LeaveDetailColl
-        Layout: =Layout.Vertical
-        LoadingSpinner: =LoadingSpinner.Data
-        ShowScrollbar: =false
-        TemplatePadding: =0
-        TemplateSize: =397
-        Visible: =Reject
-        Width: =296
-        X: =1070
-        Y: =213
-        ZIndex: =1
-
-        Title7 As label:
-            FontWeight: =FontWeight.Normal
-            Height: =Self.Size * 1.8
-            OnSelect: =Select(Parent)
-            PaddingBottom: =0
-            PaddingLeft: =0
-            PaddingRight: =0
-            PaddingTop: =0
-            Size: =13
-            Text: ="Total Days       "           &      ThisItem.TotalDays &  "  Days"
-            VerticalAlign: =VerticalAlign.Top
-            Width: =Parent.TemplateWidth - 104
-            X: =11
-            Y: =88
-            ZIndex: =1
-
-        Label17 As label:
-            Height: =42
-            Text: |-
-                ="Leave Type:      " &    ThisItem.LeaveType
-            Width: =255
-            X: =11
-            Y: =112
-            ZIndex: =2
-
-        Label23 As label:
-            Height: =42
-            OnSelect: =Select(Parent)
-            Text: |-
-                ="Request Sent to:" & ThisItem.RequestedTo.DisplayName
-            Width: =276
-            X: =11
-            Y: =173
-            ZIndex: =3
-
-        Icon7 As icon.Edit:
-            Height: =29
-            Icon: =Icon.Edit
-            OnSelect: =Navigate('New Request');
-            Width: =36
-            X: =66
-            Y: =226
-            ZIndex: =4
-
-        Button9 As button:
-            Color: =RGBA(56, 96, 178, 1)
-            Fill: =RGBA(255, 255, 255, 1)
-            Height: =29
-            OnSelect: =Select(Parent)
-            Text: ="Edit"
-            Width: =58
-            X: =120
-            Y: =226
-            ZIndex: =5
-
-        Label24 As label:
-            Align: =Align.Center
-            FontWeight: =FontWeight.Bold
-            OnSelect: =Select(Parent)
-            Size: =18
-            Text: ="Leave Details"
-            Width: =276
-            X: =11
             ZIndex: =6
 
     Header_1 As Header:
@@ -212,4 +133,219 @@
         X: =1220
         Y: =25
         ZIndex: =4
+
+    FormViewer1 As formViewer:
+        AcceptsFocus: =true
+        DataSource: =LeaveAppliedByUsers
+        Height: =391
+        Item: =Gallery7.Selected
+        NumberOfColumns: =1
+        Visible: =Oman
+        Width: =296
+        X: =1070
+        Y: =104
+        ZIndex: =5
+
+        TotalDays_DataCard2 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="TotalDays"
+            Default: =ThisItem.TotalDays
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@LeaveAppliedByUsers],DataSourceInfo.DisplayName,"TotalDays")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =296
+            X: =0
+            Y: =3
+            ZIndex: =1
+
+            DataCardKey12 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =(Parent.Width - 60) * 0.4
+                Wrap: =false
+                X: =30
+                Y: =3
+                ZIndex: =1
+
+            DataCardValue12 As label:
+                Align: =Align.Center
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                Height: =27
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Default
+                VerticalAlign: =VerticalAlign.Bottom
+                Width: =(Parent.Width - 60) * 0.6
+                X: =DataCardKey12.X + DataCardKey12.Width
+                Y: =10
+                ZIndex: =2
+
+        RequestedBy_DataCard1 As typedDataCard.comboBoxViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="RequestedBy"
+            Default: =ThisItem.RequestedBy
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@LeaveAppliedByUsers],DataSourceInfo.DisplayName,"RequestedBy")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =63
+            Required: =false
+            Update: =DataCardValue2.Selected
+            Width: =296
+            X: =0
+            Y: =0
+            ZIndex: =6
+
+            DataCardKey2 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =124
+                Wrap: =false
+                Y: =10 + (DataCardValue2.Height / 2) - (Self.Height / 2)
+                ZIndex: =1
+
+            DataCardValue2 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["DisplayName","Email","Picture"]
+                DisplayMode: =Parent.DisplayMode
+                Items: =Choices([@LeaveAppliedByUsers].RequestedBy)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["DisplayName"]
+                SearchItems: =Choices(LeaveAppliedByUsers.RequestedBy,DataCardValue2.SearchText)
+                SelectMultiple: =false
+                Template: =ListItemTemplate.Person
+                Width: =154
+                X: =DataCardKey2.X + DataCardKey2.Width
+                Y: =10
+                ZIndex: =2
+
+            ErrorMessage1 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue2.Y + DataCardValue2.Height
+                ZIndex: =3
+
+            StarVisible1 As label:
+                Align: =Align.Center
+                Height: =DataCardKey2.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey2.Y
+                ZIndex: =4
+
+        RequestedTo_DataCard1 As typedDataCard.comboBoxViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="RequestedTo"
+            Default: =ThisItem.RequestedTo
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@LeaveAppliedByUsers],DataSourceInfo.DisplayName,"RequestedTo")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =78
+            Required: =false
+            Update: =DataCardValue3.Selected
+            Width: =296
+            X: =0
+            Y: =1
+            ZIndex: =6
+
+            DataCardKey3 As label:
+                Height: =37
+                Text: =Parent.DisplayName
+                Width: =124
+                Wrap: =false
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue3 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["DisplayName","Email","Picture"]
+                DisplayMode: =Parent.DisplayMode
+                Height: =37
+                Items: =Choices([@LeaveAppliedByUsers].RequestedTo)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["DisplayName"]
+                SearchItems: =Choices(LeaveAppliedByUsers.RequestedTo,DataCardValue3.SearchText)
+                SelectMultiple: =false
+                Template: =ListItemTemplate.Person
+                Width: =166
+                X: =DataCardKey3.X + DataCardKey3.Width
+                Y: =10
+                ZIndex: =2
+
+            ErrorMessage2 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue3.Y + DataCardValue3.Height
+                ZIndex: =3
+
+            StarVisible2 As label:
+                Align: =Align.Center
+                Height: =DataCardKey3.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey3.Y
+                ZIndex: =4
+
+        LeaveType_DataCard1 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="LeaveType"
+            Default: =ThisItem.LeaveType
+            DisplayMode: =DisplayMode.View
+            DisplayName: =DataSourceInfo([@LeaveAppliedByUsers],DataSourceInfo.DisplayName,"LeaveType")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =296
+            X: =0
+            Y: =2
+            ZIndex: =6
+
+            DataCardKey7 As label:
+                Height: =30
+                Text: =Parent.DisplayName
+                Width: =116
+                Wrap: =false
+                X: =7
+                ZIndex: =1
+
+            DataCardValue7 As label:
+                DisplayMode: =Parent.DisplayMode
+                Height: =29
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Default
+                VerticalAlign: =VerticalAlign.Bottom
+                X: =DataCardKey7.X + DataCardKey7.Width
+                Y: =1
+                ZIndex: =2
 
