@@ -154,7 +154,7 @@
         Icon7 As icon.Edit:
             Height: =29
             Icon: =Icon.Edit
-            OnSelect: =Select(Parent)
+            OnSelect: =Navigate('New Request');
             Width: =36
             X: =66
             Y: =226
