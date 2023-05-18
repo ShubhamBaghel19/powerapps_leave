@@ -69,3 +69,13 @@
         Y: =96
         ZIndex: =3
 
+    Button12 As button:
+        BorderThickness: =0
+        Height: =45
+        OnSelect: =Navigate(Home);
+        Text: ="Logout"
+        Width: =146
+        X: =1220
+        Y: =25
+        ZIndex: =4
+

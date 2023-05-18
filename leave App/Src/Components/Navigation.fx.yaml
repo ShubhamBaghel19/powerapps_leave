@@ -3,7 +3,7 @@ Navigation As CanvasComponent:
     Fill: =RGBA(240, 240, 240, 1)
     Height: =Max(App.Height, App.MinScreenHeight)-Max(App.Height, App.MinScreenHeight)/8
     NavItem: |-
-        =Table({Title: "My Leave Requests",TargetScreen:App.ActiveScreen},{Title: "My Leave Balance", TargetScreen:App.ActiveScreen},{Title: "Company Holidays", TargetScreen:App.ActiveScreen} ,{Title: "About", TargetScreen:App.ActiveScreen},{Title: "LogOut", TargetScreen:App.ActiveScreen})
+        =Table({Title: "My Leave Requests",TargetScreen:App.ActiveScreen},{Title: "My Leave Balance", TargetScreen:App.ActiveScreen},{Title: "Company Holidays", TargetScreen:App.ActiveScreen} ,{Title: "About", TargetScreen:App.ActiveScreen})
     Width: =Max(App.Width, App.MinScreenWidth)/5
     X: =0
     Y: =0

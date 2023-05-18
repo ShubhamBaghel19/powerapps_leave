@@ -60,7 +60,7 @@
         Subtitle1 As label:
             Align: =Align.Center
             Height: =35
-            OnSelect: =Select(Parent)
+            OnSelect: =Navigate('New Request')
             PaddingBottom: =0
             PaddingLeft: =0
             PaddingRight: =0
@@ -102,4 +102,14 @@
             X: =228
             Y: =36
             ZIndex: =7
+
+    Button11 As button:
+        BorderThickness: =0
+        Height: =45
+        OnSelect: =Navigate(Home);
+        Text: ="Logout"
+        Width: =146
+        X: =1220
+        Y: =25
+        ZIndex: =5
 

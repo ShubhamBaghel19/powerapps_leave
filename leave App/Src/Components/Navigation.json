@@ -41,7 +41,7 @@
             "Name": "galleryTemplate1",
             "Parent": "Gallery1",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 136,
+            "PublishOrderIndex": 139,
             "Rules": [
               {
                 "Category": "Design",
@@ -137,7 +137,7 @@
             "Name": "Label2",
             "Parent": "Gallery1",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 137,
+            "PublishOrderIndex": 140,
             "Rules": [
               {
                 "Category": "Data",
@@ -458,6 +458,14 @@
             "InvariantPropertyName": "ShowScrollbar",
             "IsLockable": false,
             "NameMapSourceSchema": "?"
+          },
+          {
+            "AFDDataSourceName": "",
+            "AutoRuleBindingEnabled": false,
+            "AutoRuleBindingString": "",
+            "InvariantPropertyName": "ShowNavigation",
+            "IsLockable": false,
+            "NameMapSourceSchema": "?"
           }
         ],
         "ControlUniqueId": "5",
@@ -473,7 +481,7 @@
         "Name": "Gallery1",
         "Parent": "Navigation",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 135,
+        "PublishOrderIndex": 138,
         "Rules": [
           {
             "Category": "Data",
@@ -630,6 +638,12 @@
             "InvariantScript": "false",
             "Property": "ShowScrollbar",
             "RuleProviderType": "Unknown"
+          },
+          {
+            "Category": "Design",
+            "InvariantScript": "false",
+            "Property": "ShowNavigation",
+            "RuleProviderType": "Unknown"
           }
         ],
         "StyleName": "defaultGalleryStyle",
@@ -687,12 +701,12 @@
       },
       "CurrentScreen"
     ],
-    "LastModifiedTimestamp": "638199832013158965",
+    "LastModifiedTimestamp": "638199880365180463",
     "Name": "Navigation",
     "Rules": [
       {
         "Category": "Data",
-        "InvariantScript": "Table({Title: \"My Leave Requests\",TargetScreen:App.ActiveScreen},{Title: \"My Leave Balance\", TargetScreen:App.ActiveScreen},{Title: \"Company Holidays\", TargetScreen:App.ActiveScreen} ,{Title: \"About\", TargetScreen:App.ActiveScreen},{Title: \"LogOut\", TargetScreen:App.ActiveScreen})",
+        "InvariantScript": "Table({Title: \"My Leave Requests\",TargetScreen:App.ActiveScreen},{Title: \"My Leave Balance\", TargetScreen:App.ActiveScreen},{Title: \"Company Holidays\", TargetScreen:App.ActiveScreen} ,{Title: \"About\", TargetScreen:App.ActiveScreen})",
         "Property": "NavItem",
         "RuleProviderType": "System"
       },
@@ -777,7 +791,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638199832013158965",
+  "LastModifiedTimestamp": "638199880365180463",
   "Name": "13f1b70ccdc54d71842bf19df22d23c8",
   "OverridableProperties": {},
   "Version": "638180016173773006"

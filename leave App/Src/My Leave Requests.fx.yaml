@@ -193,3 +193,17 @@
         Y: =193
         ZIndex: =3
 
+    Button10 As button:
+        BorderThickness: =0
+        Height: =45
+        OnSelect: =Navigate(Home);
+        RadiusBottomLeft: =1
+        RadiusBottomRight: =1
+        RadiusTopLeft: =1
+        RadiusTopRight: =1
+        Text: ="Logout"
+        Width: =146
+        X: =1220
+        Y: =25
+        ZIndex: =4
+

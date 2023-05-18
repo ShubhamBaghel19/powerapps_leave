@@ -20,10 +20,6 @@ App As appinfo:
             {
                 Title: "About",
                 TargetScreen: About
-            },
-            {
-                Title: "LogOut",
-                TargetScreen: Logout
             }
         );ClearCollect(
             NavEmployeeView,
@@ -43,11 +39,8 @@ App As appinfo:
             {
                 Title: "About",
                 TargetScreen: About
-            },
-            {
-                Title: "LogOut",
-                TargetScreen: Logout
             }
+            
         )
 
     Host As hostControl.DefaultHostControlVariant:
