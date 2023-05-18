@@ -1,5 +1,6 @@
 "'My Leave Requests' As screen":
-    OnVisible: =Reset(Gallery9);
+    Fill: =RGBA(241, 244, 249, 1)
+    OnVisible: =
 
     Navigation_1 As Navigation:
         CurrentScreen: ="My Leave Requests"

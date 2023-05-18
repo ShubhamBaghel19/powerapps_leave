@@ -1,4 +1,5 @@
 "'Leaves Waiting for Approval' As screen":
+    Fill: =RGBA(241, 244, 249, 1)
     OnVisible: =Reset(Gallery9_1);
 
     Navigation_7 As Navigation:

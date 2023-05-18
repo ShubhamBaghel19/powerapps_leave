@@ -1,4 +1,5 @@
 "'Company Holidays' As screen":
+    Fill: =RGBA(241, 244, 249, 1)
 
     Navigation_3 As Navigation:
         CurrentScreen: ="Company Holidays"

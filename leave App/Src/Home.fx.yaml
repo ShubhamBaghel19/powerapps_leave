@@ -1,47 +1,11 @@
 Home As screen:
-
-    Container2 As groupContainer.manualLayoutContainer:
-        Height: =767
-        Width: =540
-        ZIndex: =1
-
-        Image1 As image:
-            Height: =767
-            Image: =td_blog
-            Width: =540
-            ZIndex: =1
-
-        Label4 As label:
-            FontWeight: =FontWeight.Bold
-            Size: =18
-            Text: ="Request"
-            X: =84
-            Y: =180
-            ZIndex: =2
-
-        Icon3 As icon.ArrowRight:
-            Height: =45
-            Icon: =Icon.ArrowRight
-            Width: =45
-            X: =200
-            Y: =180
-            ZIndex: =3
-
-        Label4_1 As label:
-            Align: =Align.Center
-            FontWeight: =FontWeight.Bold
-            Size: =18
-            Text: ="Leave"
-            Width: =98
-            X: =257
-            Y: =180
-            ZIndex: =4
+    Fill: =RGBA(202, 202, 202, 1)
 
     Container3 As groupContainer.manualLayoutContainer:
-        Height: =144
-        Width: =806
-        X: =552
-        Y: =236
+        Height: =146
+        Width: =1355
+        X: =11
+        Y: =232
         ZIndex: =2
 
         Label5 As label:
@@ -49,8 +13,8 @@ Home As screen:
             Height: =47
             Text: ="TO APPLY FOR A LEAVE"
             Width: =652
-            X: =56
-            Y: =4
+            X: =342
+            Y: =29
             ZIndex: =1
 
         Button1 As button:
@@ -58,15 +22,15 @@ Home As screen:
             OnSelect: =Set(ManagerView,false);Navigate('My Leave Requests')
             Text: ="Login as a employee"
             Width: =581
-            X: =100
-            Y: =51
+            X: =400
+            Y: =76
             ZIndex: =2
 
     Container3_1 As groupContainer.manualLayoutContainer:
-        Height: =144
-        Width: =806
-        X: =560
-        Y: =380
+        Height: =146
+        Width: =1332
+        X: =11
+        Y: =378
         ZIndex: =3
 
         Label5_1 As label:
@@ -74,8 +38,8 @@ Home As screen:
             Height: =47
             Text: ="TO APPROVE OR DECLINE LEAVE REQUESTS"
             Width: =652
-            X: =56
-            Y: =4
+            X: =329
+            Y: =17
             ZIndex: =1
 
         Button1_1 As button:
@@ -83,7 +47,16 @@ Home As screen:
             OnSelect: =Set(ManagerView,true);Navigate('My Leave Requests')
             Text: ="Login as a manager"
             Width: =581
-            X: =100
-            Y: =51
+            X: =400
+            Y: =64
             ZIndex: =2
+
+    Image9 As image:
+        Height: =152
+        Image: ='Yash Logo'
+        TabIndex: =4
+        Width: =336
+        X: =1030
+        Y: =616
+        ZIndex: =4
 

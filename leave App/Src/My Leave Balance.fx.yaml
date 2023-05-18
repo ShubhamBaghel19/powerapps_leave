@@ -1,4 +1,5 @@
 "'My Leave Balance' As screen":
+    Fill: =RGBA(241, 244, 249, 1)
 
     Navigation_2 As Navigation:
         CurrentScreen: ="My Leave Balance"

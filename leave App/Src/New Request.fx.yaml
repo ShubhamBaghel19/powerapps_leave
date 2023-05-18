@@ -1,4 +1,5 @@
 "'New Request' As screen":
+    Fill: =RGBA(241, 244, 249, 1)
     OnVisible: |-
         =
         ClearCollect(AppliedLeave,Filter(LeaveAppliedByUsers,RequestedBy.Email=User().Email));
@@ -881,7 +882,7 @@
               {
                     RequestedBy: {
                            '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
-                          Claims: "i:0#.f|membership|"  & Lower(User().Email),
+                          Claims: "i:0#.f|membership|"  && Lower(User().Email),
                         Department: "",
                         DisplayName: User().FullName,
                         Email: User().Email,
