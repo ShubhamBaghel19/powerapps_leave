@@ -21,6 +21,7 @@
         ShowScrollbar: =false
         TemplatePadding: =0
         TemplateSize: =397
+        Visible: =Reject
         Width: =296
         X: =1070
         Y: =213
@@ -191,7 +192,10 @@
             ZIndex: =5
 
         Button8_1 As button:
-            OnSelect: =ClearCollect(LeaveDetailColl,Filter(LeaveAppliedByUsers,ID=ThisItem.ID)) 
+            OnSelect: |-
+                =ClearCollect(LeaveDetailColl,Filter(LeaveAppliedByUsers,ID=ThisItem.ID)) ;
+                
+                Set(Reject,false);
             Text: =ThisItem.LeaveStatus.Value
             X: =606
             Y: =46
