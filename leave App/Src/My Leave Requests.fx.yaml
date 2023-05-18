@@ -143,7 +143,7 @@
         Visible: =Oman
         Width: =296
         X: =1070
-        Y: =104
+        Y: =185
         ZIndex: =5
 
         TotalDays_DataCard2 As typedDataCard.textualViewCard:
