@@ -177,7 +177,7 @@
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "05/18/2023 10:43:56",
+  "HeaderLastSavedDateTimeUTC": "05/18/2023 10:44:21",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
     "460f14dc-a09d-4d93-91b2-9050a01c8eed": "\"/providers/microsoft.powerapps/apis/shared_office365users/connections/6f4af192fbef4707aa1517647d0232be\"",
@@ -199,11 +199,12 @@
     "58c13c3c2c744df3bda091c147f33a87": 1
   },
   "OrderDataSource": {
-    "AllDate": 12,
-    "AppliedLeave": 13,
+    "AllDate": 13,
+    "AppliedLeave": 14,
     "ComboBoxSample": 5,
     "Company Holidays_1": 3,
     "CustomGallerySample": 1,
+    "DateRange": 15,
     "Leave Balance": 2,
     "LeaveAppliedByUsers": 4,
     "LeaveDetailColl": 11,
@@ -212,7 +213,8 @@
     "NavEmployeeView": 6,
     "NavManagerView": 7,
     "Office365Users": 0,
-    "TotalLeave": 8
+    "TotalLeave": 8,
+    "TotalLeaves": 12
   },
   "OrderGroupControls": {
     "GRPSelectedApprover": {
