@@ -30,6 +30,9 @@
                 =If(ThisItem.Filter="All",ClearCollect(MyLeavesColl,Filter(LeaveAppliedByUsers,RequestedBy.Email=User().Email)),ClearCollect(MyLeavesColl,Filter(LeaveAppliedByUsers,LeaveStatus.Value=ThisItem.Filter,RequestedBy.Email=User().Email)));
                 
                 If(IsEmpty(MyLeavesColl),UpdateContext({NoData: "No Record Found"}),UpdateContext({NoData:""}));
+                
+                
+                Set(Reject,true);
             Text: =ThisItem.Filter
             X: =16
             Y: =16
@@ -112,6 +115,7 @@
         ShowScrollbar: =false
         TemplatePadding: =0
         TemplateSize: =397
+        Visible: =Reject
         Width: =296
         X: =1070
         Y: =213
