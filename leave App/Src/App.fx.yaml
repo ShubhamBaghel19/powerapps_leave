@@ -1,5 +1,7 @@
 App As appinfo:
     BackEnabled: =false
+    ConfirmExit: =true
+    ConfirmExitMessage: ="Are you sure want to exit?"
     OnStart: |-
         =ClearCollect(
             NavManagerView,
