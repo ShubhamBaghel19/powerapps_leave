@@ -58,6 +58,9 @@
     "datasets": {
       "https://305qbt.sharepoint.com/sites/BalanceLeave": {
         "dataSources": {
+          "ManagerLogin": {
+            "tableName": "cd403840-134d-4ccc-ba57-04aba083ae9c"
+          },
           "User Login": {
             "tableName": "d6573004-244e-4213-97e9-fa81c3d3c8d1"
           }
@@ -65,7 +68,8 @@
       }
     },
     "dataSources": [
-      "User Login"
+      "User Login",
+      "ManagerLogin"
     ],
     "dependencies": {},
     "dependents": [],

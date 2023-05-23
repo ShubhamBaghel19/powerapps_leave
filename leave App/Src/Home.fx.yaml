@@ -44,7 +44,7 @@ Home As screen:
 
         Button1_1 As button:
             Height: =63
-            OnSelect: =Set(ManagerView,true);Navigate(LoginScreen)
+            OnSelect: =Set(ManagerView,true);Navigate(ManagerScreen)
             Text: ="Login as a manager"
             Width: =581
             X: =400

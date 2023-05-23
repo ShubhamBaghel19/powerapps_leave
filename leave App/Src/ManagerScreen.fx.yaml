@@ -1,0 +1,94 @@
+ManagerScreen As screen:
+
+    Label4_1 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Bold
+        Height: =86
+        Italic: =true
+        Size: =30
+        Text: ="Yash Technologies Leave Management Portal"
+        Width: =1366
+        Y: =48
+        ZIndex: =1
+
+    Image1_1 As image:
+        Height: =168
+        Image: ='Yash Logo'
+        Width: =474
+        X: =892
+        Y: =600
+        ZIndex: =2
+
+    Container4_1 As groupContainer.manualLayoutContainer:
+        Height: =344
+        Width: =646
+        X: =40
+        Y: =192
+        ZIndex: =3
+
+        TextInput1_2 As text:
+            Clear: =true
+            Default: =""
+            EnableSpellCheck: =true
+            HintText: ="Enter Password"
+            MaxLength: =15
+            Mode: =TextMode.Password
+            X: =164
+            Y: =158
+            ZIndex: =1
+
+        TextInput1_3 As text:
+            Default: =""
+            HintText: ="Enter UserId"
+            Mode: =TextMode.MultiLine
+            X: =164
+            Y: =94
+            ZIndex: =2
+
+        Button9_1 As button:
+            Fill: =RGBA(141, 198, 63, 1)
+            OnSelect: |-
+                =If(
+                    !IsBlank(
+                        LookUp(
+                            ManagerLogin,
+                            'Id' = TextInput1_3.Text && 'Passwords' = TextInput1_2.Text,
+                            'FullNamee'
+                        )
+                    );
+                    Set(
+                        varWarningPopUp,
+                        false  
+                    ),
+                    Navigate('Leaves Waiting for Approval'),
+                    Set(
+                        varWarningPopUp,
+                        true
+                    )
+                )
+            Text: ="Login"
+            X: =232
+            Y: =276
+            ZIndex: =5
+
+        Label25_1 As label:
+            Align: =Align.Center
+            FontWeight: =FontWeight.Bold
+            Height: =33
+            Text: ="Enter UserId and Password to Login"
+            Width: =642
+            X: =3
+            Y: =35
+            ZIndex: =6
+
+        Label26_1 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(184, 0, 0, 1)
+            Height: =35
+            Text: ="Incorrect UserId or Password"
+            Visible: =varWarningPopUp
+            Width: =332
+            X: =152
+            ZIndex: =7
+
