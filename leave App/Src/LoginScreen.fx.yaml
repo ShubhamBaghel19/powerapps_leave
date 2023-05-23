@@ -55,10 +55,6 @@
                     Navigate('My Leave Requests'),
                     UpdateContext({varWarningPopUp: false})
                 );
-                Notify(
-                    "Employee Logged in Successfully!",
-                    NotificationType.Success
-                );
             Text: ="Login"
             X: =232
             Y: =276
