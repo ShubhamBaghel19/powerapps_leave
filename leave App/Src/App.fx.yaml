@@ -3,7 +3,11 @@ App As appinfo:
     ConfirmExit: =true
     ConfirmExitMessage: ="Are you sure want to exit?"
     OnStart: |-
-        =ClearCollect(
+        =Set(
+                varWarningPopUp,
+                false  
+            );
+        ClearCollect(
             NavManagerView,
             {
                 Title: "Leaves Waiting for Approval",

@@ -48,5 +48,27 @@
     "dependencies": {},
     "dependents": [],
     "id": "5b38146d-7546-44c1-9c19-a8776645a52c"
+  },
+  "84adf3ef-d38f-4a20-ab26-c33b75bc4306": {
+    "connectionRef": {
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1627/1.0.1627.3238/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline"
+    },
+    "datasets": {
+      "https://305qbt.sharepoint.com/sites/BalanceLeave": {
+        "dataSources": {
+          "User Login": {
+            "tableName": "d6573004-244e-4213-97e9-fa81c3d3c8d1"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "User Login"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "84adf3ef-d38f-4a20-ab26-c33b75bc4306"
   }
 }
