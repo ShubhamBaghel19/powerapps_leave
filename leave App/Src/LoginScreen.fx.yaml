@@ -45,7 +45,7 @@
             Fill: =RGBA(141, 198, 63, 1)
             OnSelect: |
                 =If(
-                    !IsBlank(
+                    IsBlank(
                         LookUp(
                             'User Login',
                             'UserId' = TextInput1.Text && 'Password' = TextInput1_1.Text,
