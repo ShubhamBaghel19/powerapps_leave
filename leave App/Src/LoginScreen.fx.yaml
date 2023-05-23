@@ -1,5 +1,8 @@
 "LoginScreen As screen.'tabletAutoLayout_HeaderMainFooter_ver1.0'":
     Fill: =RGBA(237, 237, 237, 1)
+    OnVisible: |
+        =Reset(TextInput1);
+        Reset(TextInput1_1);
 
     Label4 As label:
         Align: =Align.Center
