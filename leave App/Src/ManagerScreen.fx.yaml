@@ -62,13 +62,13 @@ ManagerScreen As screen:
                     Set(
                         varWarningPopUp,
                         false  
-                    ),
+                    );
                     Navigate('Leaves Waiting for Approval'),
                     Set(
                         varWarningPopUp,
                         true
                     )
-                );Notify("Employee Logged in Successfully!",NotificationType.Success);
+                );Notify("Manager Logged in Successfully!",NotificationType.Success);
             Text: ="Login"
             X: =232
             Y: =276

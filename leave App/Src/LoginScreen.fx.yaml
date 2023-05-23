@@ -55,7 +55,7 @@
                     Set(
                         varWarningPopUp,
                         false  
-                    ),
+                    );
                     Navigate('My Leave Requests'),
                     Set(
                         varWarningPopUp,
