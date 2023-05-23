@@ -1,4 +1,7 @@
 ManagerScreen As screen:
+    OnVisible: |-
+        =Reset(TextInput1_2);
+        Reset(TextInput1_3);
 
     Label4_1 As label:
         Align: =Align.Center
