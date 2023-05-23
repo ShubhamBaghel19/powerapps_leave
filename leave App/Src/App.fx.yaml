@@ -3,10 +3,7 @@ App As appinfo:
     ConfirmExit: =true
     ConfirmExitMessage: ="Are you sure want to exit?"
     OnStart: |-
-        =Set(
-                varWarningPopUp,
-                false  
-            );
+        =
         ClearCollect(
             NavManagerView,
             {

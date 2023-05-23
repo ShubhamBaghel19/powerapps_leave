@@ -53,7 +53,7 @@
                         )
                     );
                     Navigate('My Leave Requests'),
-                    UpdateContext({varWarningPopUp: true})
+                    UpdateContext({varWarningPopUp: false})
                 );
                 Notify(
                     "Employee Logged in Successfully!",
