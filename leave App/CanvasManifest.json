@@ -129,7 +129,7 @@
   },
   "ScreenOrder": [
     "Home",
-    "Screen1",
+    "LoginScreen",
     "My Leave Requests",
     "My Leave Balance",
     "Company Holidays",

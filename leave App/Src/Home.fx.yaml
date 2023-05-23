@@ -19,7 +19,7 @@ Home As screen:
 
         Button1 As button:
             Height: =63
-            OnSelect: =Set(ManagerView,false);Navigate('My Leave Requests')
+            OnSelect: =Set(ManagerView,false);Navigate(LoginScreen)
             Text: ="Login as a employee"
             Width: =581
             X: =400
@@ -44,7 +44,7 @@ Home As screen:
 
         Button1_1 As button:
             Height: =63
-            OnSelect: =Set(ManagerView,true);Navigate('My Leave Requests')
+            OnSelect: =Set(ManagerView,true);Navigate(LoginScreen)
             Text: ="Login as a manager"
             Width: =581
             X: =400

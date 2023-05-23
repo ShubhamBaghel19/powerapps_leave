@@ -1,4 +1,5 @@
-"Screen1 As screen.'tabletAutoLayout_HeaderMainFooter_ver1.0'":
+"LoginScreen As screen.'tabletAutoLayout_HeaderMainFooter_ver1.0'":
+    Fill: =RGBA(237, 237, 237, 1)
 
     Label4 As label:
         Align: =Align.Center
@@ -47,7 +48,7 @@
                             'UserId' = TextInput1.Text && 'Password' = TextInput1_1.Text,
                             'FullName'
                         )
-                    ),
+                    );
                     Set(
                         varWarningPopUp,
                         false  
@@ -93,4 +94,12 @@
         X: =200
         Y: =424
         ZIndex: =11
+
+    Image1 As image:
+        Height: =168
+        Image: ='Yash Logo'
+        Width: =474
+        X: =892
+        Y: =600
+        ZIndex: =12
 
