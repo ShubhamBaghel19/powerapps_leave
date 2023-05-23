@@ -53,7 +53,7 @@
                         ).Title
                     ),
                     Navigate('My Leave Requests'),
-                    UpdateContext({showForgotMessage: true})
+                    UpdateContext({showForgotMessage: false})
                 )
             Text: ="Login"
             X: =232
