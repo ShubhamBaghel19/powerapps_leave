@@ -50,7 +50,7 @@
                         LookUp(
                             'User Login',
                             UserId = TextInput1.Text And Password = TextInput1_1.Text
-                        ).Title
+                        )
                     ),
                     Navigate('My Leave Requests'),
                     UpdateContext({showForgotMessage: false})
