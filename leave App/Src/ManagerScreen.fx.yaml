@@ -55,8 +55,8 @@ ManagerScreen As screen:
                     !IsBlank(
                         LookUp(
                             ManagerLogin,
-                            'Id' = TextInput1_3.Text && 'Passwords' = TextInput1_2.Text,
-                            'FullNamee'
+                            Id = TextInput1_3.Text && Passwords = TextInput1_2.Text,
+                            FullNamee
                         )
                     );
                     Set(

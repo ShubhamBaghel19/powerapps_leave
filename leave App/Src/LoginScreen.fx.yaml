@@ -45,24 +45,20 @@
             Fill: =RGBA(141, 198, 63, 1)
             OnSelect: |
                 =If(
-                    IsBlank(
+                    !IsBlank(
                         LookUp(
                             'User Login',
-                            'UserId' = TextInput1.Text && 'Password' = TextInput1_1.Text,
-                            'FullName'
+                            UserId = TextInput1.Text && Password = TextInput1_1.Text,
+                            FullName
                         )
                     );
-                    Set(
-                        varWarningPopUp,
-                        false  
-                    );
                     Navigate('My Leave Requests'),
-                    Set(
-                        varWarningPopUp,
-                        true
-                    )
+                    UpdateContext({varWarningPopUp: true})
                 );
-                Notify("Employee Logged in Successfully!",NotificationType.Success);
+                Notify(
+                    "Employee Logged in Successfully!",
+                    NotificationType.Success
+                );
             Text: ="Login"
             X: =232
             Y: =276
