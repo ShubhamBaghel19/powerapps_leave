@@ -1,8 +1,9 @@
 "LoginScreen As screen.'tabletAutoLayout_HeaderMainFooter_ver1.0'":
     Fill: =RGBA(237, 237, 237, 1)
-    OnVisible: |
+    OnVisible: |+
         =Reset(TextInput1);
         Reset(TextInput1_1);
+        
 
     Label4 As label:
         Align: =Align.Center
@@ -44,7 +45,16 @@
         Button9 As button:
             Fill: =RGBA(141, 198, 63, 1)
             OnSelect: |-
-                =If(!IsBlank(LookUp('User Login',UserId=TextInput1.Text And Password=TextInput1_1.Text).Title),Navigate( 'My Leave Requests'),UpdateContext({showForgotMessage:true}))
+                =If(
+                    !IsBlank(
+                        LookUp(
+                            'User Login',
+                            UserId = TextInput1.Text And Password = TextInput1_1.Text
+                        ).Title
+                    ),
+                    Navigate('My Leave Requests'),
+                    UpdateContext({showForgotMessage: true})
+                )
             Text: ="Login"
             X: =232
             Y: =276
