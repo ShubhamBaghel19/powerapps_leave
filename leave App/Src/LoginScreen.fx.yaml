@@ -51,7 +51,7 @@
                             'User Login',
                             UserId = TextInput1.Text And Password = TextInput1_1.Text
                         )
-                    ),
+                    );
                     Navigate('My Leave Requests'),
                     UpdateContext({showForgotMessage: false})
                 )
