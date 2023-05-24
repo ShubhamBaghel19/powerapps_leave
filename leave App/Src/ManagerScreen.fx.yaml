@@ -2,6 +2,7 @@ ManagerScreen As screen:
     OnVisible: |-
         =Reset(TextInput1_2);
         Reset(TextInput1_3);
+        Set(showForgotMessage,false);
 
     Label4_1 As label:
         Align: =Align.Center
@@ -55,20 +56,12 @@ ManagerScreen As screen:
                     !IsBlank(
                         LookUp(
                             ManagerLogin,
-                            Id = TextInput1_3.Text && Passwords = TextInput1_2.Text,
-                            FullNamee
-                        )
-                    );
-                    Set(
-                        varWarningPopUp,
-                        false  
-                    );
-                    Navigate('Leaves Waiting for Approval'),
-                    Set(
-                        varWarningPopUp,
-                        true
-                    )
-                );Notify("Manager Logged in Successfully!",NotificationType.Success);
+                            Id =TextInput1_3.Text && Passwords = TextInput1_2.Text
+                        ).Title
+                    ),
+                    Navigate('Leaves Waiting for Approval');UpdateContext({showForgotMessage: false}),
+                    UpdateContext({showForgotMessage: true})
+                )
             Text: ="Login"
             X: =232
             Y: =276
@@ -90,7 +83,7 @@ ManagerScreen As screen:
             Fill: =RGBA(184, 0, 0, 1)
             Height: =35
             Text: ="Incorrect UserId or Password"
-            Visible: =varWarningPopUp
+            Visible: =showForgotMessage
             Width: =332
             X: =152
             ZIndex: =7
