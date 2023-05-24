@@ -52,7 +52,7 @@
                             Title =TextInput1.Text && Password = TextInput1_1.Text
                         ).Title
                     ),
-                    Navigate('My Leave Requests');
+                    Navigate('My Leave Requests');,
                     UpdateContext({showForgotMessage: true})
                 )
             Text: ="Login"
