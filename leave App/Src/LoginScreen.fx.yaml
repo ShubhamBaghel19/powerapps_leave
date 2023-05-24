@@ -53,7 +53,7 @@
                         )
                     ),
                     Navigate('My Leave Requests');
-                    UpdateContext({showForgotMessage: false})
+                    UpdateContext({showForgotMessage: true})
                 )
             Text: ="Login"
             X: =232
