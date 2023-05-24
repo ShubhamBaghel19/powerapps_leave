@@ -49,10 +49,10 @@
                     !IsBlank(
                         LookUp(
                             'User Login',
-                            UserId = TextInput1.Text And Password = TextInput1_1.Text
-                        ).Title
+                            UserId =TextInput1.Text && Password = TextInput1_1.Text
+                        )
                     ),
-                    Navigate('My Leave Requests'),
+                    Navigate('My Leave Requests');
                     UpdateContext({showForgotMessage: false})
                 )
             Text: ="Login"
