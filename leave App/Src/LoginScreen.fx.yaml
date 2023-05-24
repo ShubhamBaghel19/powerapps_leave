@@ -1,9 +1,9 @@
 "LoginScreen As screen.'tabletAutoLayout_HeaderMainFooter_ver1.0'":
     Fill: =RGBA(237, 237, 237, 1)
-    OnVisible: |+
+    OnVisible: |
         =Reset(TextInput1);
         Reset(TextInput1_1);
-        
+        Set(showForgotMessage,false);
 
     Label4 As label:
         Align: =Align.Center
@@ -52,7 +52,7 @@
                             Title =TextInput1.Text && Password = TextInput1_1.Text
                         ).Title
                     ),
-                    Navigate('My Leave Requests');,
+                    Navigate('My Leave Requests');UpdateContext({showForgotMessage: false}),
                     UpdateContext({showForgotMessage: true})
                 )
             Text: ="Login"

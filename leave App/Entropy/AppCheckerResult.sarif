@@ -4004,6 +4004,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "App.showForgotMessage"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.showForgotMessage",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "showForgotMessage",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'New Request'.daysDiff"
                 }
               ],
