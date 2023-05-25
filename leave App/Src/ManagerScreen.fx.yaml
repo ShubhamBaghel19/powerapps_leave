@@ -60,13 +60,14 @@ ManagerScreen As screen:
                         ).Title
                     ),
                     Navigate('Leaves Waiting for Approval');
-                    Notify(
-                        "Manager Logged in Successfully!",
-                        NotificationType.Success;
                         UpdateContext({showForgotMessage: false}),
                         UpdateContext({showForgotMessage: true})
-                    )
-                )
+                    
+                );
+                 Notify(
+                        "Manager Logged in Successfully!",
+                        NotificationType.Success;
+                   
             Text: ="Login"
             X: =232
             Y: =276
