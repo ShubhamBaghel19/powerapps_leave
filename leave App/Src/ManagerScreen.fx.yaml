@@ -59,7 +59,7 @@ ManagerScreen As screen:
                             Id = TextInput1_2.Text && Passwords = TextInput1_2.Text
                         ).Title
                     ),
-                    Navigate('Leaves Waiting for Approval');
+                    Navigate('Leaves Waiting for Approval'),
                     UpdateContext({showForgotMessage: false}),
                     UpdateContext({showForgotMessage: true})
                 );
