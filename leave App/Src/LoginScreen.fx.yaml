@@ -44,7 +44,7 @@
 
         Button9 As button:
             Fill: =RGBA(141, 198, 63, 1)
-            OnSelect: |-
+            OnSelect: |
                 =If(
                     !IsBlank(
                         LookUp(
@@ -54,7 +54,11 @@
                     ),
                     Navigate('My Leave Requests');UpdateContext({showForgotMessage: false}),
                     UpdateContext({showForgotMessage: true})
-                )
+                );
+                Notify(
+                    "Employee Logged in Successfully!",
+                    NotificationType.Success
+                );
             Text: ="Login"
             X: =232
             Y: =276
