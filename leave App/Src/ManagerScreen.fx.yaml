@@ -62,7 +62,7 @@ ManagerScreen As screen:
                     Navigate('Leaves Waiting for Approval');UpdateContext({showForgotMessage: false}),
                     UpdateContext({showForgotMessage: true})
                 );Notify(
-                    "Employee Logged in Successfully!",
+                    "Manager Logged in Successfully!",
                     NotificationType.Success
                 );
             Text: ="Login"
