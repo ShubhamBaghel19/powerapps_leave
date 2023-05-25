@@ -51,7 +51,7 @@ ManagerScreen As screen:
 
         Button9_1 As button:
             Fill: =RGBA(141, 198, 63, 1)
-            OnSelect: |
+            OnSelect: |-
                 =If(
                     !IsBlank(
                         LookUp(
@@ -60,11 +60,12 @@ ManagerScreen As screen:
                         ).Title
                     ),
                     Navigate('Leaves Waiting for Approval');UpdateContext({showForgotMessage: false}),
-                    UpdateContext({showForgotMessage: true})
-                );Notify(
+                    UpdateContext({showForgotMessage: true}),
+                    Notify(
                     "Manager Logged in Successfully!",
                     NotificationType.Success
-                );
+                )
+                )
             Text: ="Login"
             X: =232
             Y: =276
@@ -90,4 +91,14 @@ ManagerScreen As screen:
             Width: =332
             X: =152
             ZIndex: =7
+
+    Label24_2 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Lighter
+        Height: =25
+        Text: ="click here to login"
+        Width: =325
+        X: =200
+        Y: =424
+        ZIndex: =4
 
