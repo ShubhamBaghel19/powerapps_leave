@@ -51,23 +51,21 @@ ManagerScreen As screen:
 
         Button9_1 As button:
             Fill: =RGBA(141, 198, 63, 1)
-            OnSelect: |-
+            OnSelect: |
                 =If(
                     !IsBlank(
                         LookUp(
                             ManagerLogin,
-                            Id = TextInput1_3.Text && Passwords = TextInput1_2.Text
+                            Id =TextInput1_2.Text && Passwords = TextInput1_2.Text
                         ).Title
                     ),
-                    Navigate('Leaves Waiting for Approval');
-                        UpdateContext({showForgotMessage: false}),
-                        UpdateContext({showForgotMessage: true})
-                    
+                    Navigate('Leaves Waiting for Approval');UpdateContext({showForgotMessage: false}),
+                    UpdateContext({showForgotMessage: true})
                 );
-                 Notify(
-                        "Manager Logged in Successfully!",
-                        NotificationType.Success;
-                   
+                Notify(
+                    "Manager Logged in Successfully!",
+                    NotificationType.Success
+                );
             Text: ="Login"
             X: =232
             Y: =276
