@@ -56,10 +56,11 @@ ManagerScreen As screen:
                     !IsBlank(
                         LookUp(
                             ManagerLogin,
-                            Id =TextInput1_2.Text && Passwords = TextInput1_2.Text
+                            Id = TextInput1_2.Text && Passwords = TextInput1_2.Text
                         ).Title
                     ),
-                    Navigate('Leaves Waiting for Approval');UpdateContext({showForgotMessage: false}),
+                    Navigate('Leaves Waiting for Approval');
+                    UpdateContext({showForgotMessage: false}),
                     UpdateContext({showForgotMessage: true})
                 );
                 Notify(
